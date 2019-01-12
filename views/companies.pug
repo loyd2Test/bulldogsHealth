@@ -1,0 +1,16 @@
+extends layout
+block content
+  main.col-md-9.ml-sm-auto.col-lg-10.px-4
+    h2 Companies
+    .table-responsive
+      table.table.table-striped.table-sm
+        thead
+          tr
+          th Company ID
+          th Name
+        tbody
+          each comp in comps
+            tr
+            td #{comp.id}
+            td #{comp.name}
+    button Add a Company

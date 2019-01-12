@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "foo",
+    "password": "bar",
+    "database": "bd_health",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "port": 3306
+  },
+  "test": {
+    "username": "null",
+    "password": "357659Rhajamani2k19",
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "null",
+    "password": "357659Rhajamani2k19",
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
