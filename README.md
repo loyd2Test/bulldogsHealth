@@ -1,10 +1,7 @@
 # myapp
 
-Senior Design Class Project By: Loyd Stewart
+Loyd Stewart Senior Design Class Project
 
 Sponsor: Dijitek
 
-Node Express App using:
-  Sequelize
-  Pug
-  Express
+Node Express App using: Sequelize - Pug - Express
