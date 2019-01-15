@@ -1,5 +1,10 @@
 # myapp
-Node Express App with Sequelize
 
-Steps found here:
-https://docs.google.com/document/d/1oewJO3n-PbfqILZgkv_0IXzryGR-jCjZcUVzpszTVh0/edit?usp=sharing
+Senior Design Class Project By: Loyd Stewart
+
+Sponsor: Dijitek
+
+Node Express App using:
+  Sequelize
+  Pug
+  Express
