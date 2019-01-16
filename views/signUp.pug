@@ -29,12 +29,6 @@ block content
     background-color: #f2f2f2;
     padding: 20px;
     }
-    .blue-square-container {
-    text-align: center;
-    width:40%;
-    background-color: white;
-    margin: 0 auto;
-    }
 
 
 
@@ -42,15 +36,14 @@ block content
   div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
     //- h1 Join Now
     form(action='/', method='post')
-          input.ghost-input(name='first', type='text', placeholder='Email', required='y')
+          input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
           br
-          input.ghost-input(name='last', type='text', placeholder='Password', required='y')
+          input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
+          br
+          input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
+          br
+          input.ghost-input(name='password', type='text', placeholder='Enter password', required='y')
           br
           br
-          input.ghost-button(type='submit', value='Log In')
+          input.ghost-button(type='submit', value='Sign Up')
   br
-
-  div(class="blue-square-container")
-    div(style="width: 40%;padding: 10px 10px;margin: 0 auto")
-      a Not a member?
-      a.nav-link(style="color:#45a049",href="/signUp") Sign Up
