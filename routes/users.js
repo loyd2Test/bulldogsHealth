@@ -14,7 +14,7 @@ var models = require('../models');
 router.get('/', function(req, res, next) {
   models.Candidate.findAll({
   }).then(function(cands) {
-    res.render('users', {
+    res.render('usersA', {
       title: 'Sequelize: Express Example',
       cands: cands
     });
@@ -22,3 +22,7 @@ router.get('/', function(req, res, next) {
   //res.render('companies', { title: 'Express' });
 });
 module.exports = router; 
+
+router.post('/add', function(req,res,next){
+  res.json(req.body);
+})

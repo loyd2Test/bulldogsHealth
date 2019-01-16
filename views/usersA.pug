@@ -21,13 +21,13 @@ block content
     h2 Add a user  
     body
       .container
-        form(action='/', method='post')
+        form(action='/users/add', method='POST')
           input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
           br
           input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
           br
           input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
           br
-          input.ghost-button(type='submit', value='Create User')
+          input.ghost-button(type='submit', value='Submit')
           
 
