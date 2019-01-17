@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api');
 var companiesRouter = require('./routes/companies');
 var signUpRouter = require('./routes/signUp');
-
+// var adminRouter = require('./routes/admin');
 var app = express();
 
 // view engine setup
@@ -28,6 +28,8 @@ app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/companies', companiesRouter);
 app.use('/signUp', signUpRouter);
+// app.use('/admin', adminRouter);
+
 // app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
