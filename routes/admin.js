@@ -16,5 +16,5 @@ module.exports = router;
 
 router.post('/checkAdmin', function(req,res,next){
   res.json(req.body);
-  
+// Current End
 })
