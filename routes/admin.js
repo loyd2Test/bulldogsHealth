@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,6 +16,14 @@ router.get('/login', function(req, res, next) {
 module.exports = router;
 
 router.post('/checkAdmin', function(req,res,next){
-  res.json(req.body);
+  // models.Company.findOne({ where: {name: 'Florida Hospital'} }).then(function(comp) {
+  //   if (comp == null) {
+  //     res.send("No results found");
+  //   } else {
+  //     res.json(comp);
+  //   }
+  // });
+  // res.json(req.body);
 // Current End
 })
+
