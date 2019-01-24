@@ -26,12 +26,18 @@ block content
     }
     div {
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
     }
+  
+  div(class = "seperate" style="padding-top:100px;padding-bottom:400px;")
+    div(class="about")
+      h1(style="text-align:center;") About Us
+      h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
 
 
-  h2 Job Openings (Sign up/in to apply)
+
+
+  h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
   .table-responsive
     table.table.table-striped.table-sm
       thead
@@ -51,7 +57,7 @@ block content
         td 4 days a week, 12pm to 9pm
         td nursing degree
 
-  div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
+  div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
     h1 Join Now
     form(action='/', method='post')
           input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
