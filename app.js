@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 // var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 var apiRouter = require('./routes/api');
 var companiesRouter = require('./routes/companies');
 var signUpRouter = require('./routes/signUp');
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 app.use('/companies', companiesRouter);
 app.use('/signUp', signUpRouter);

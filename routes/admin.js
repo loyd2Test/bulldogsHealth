@@ -13,3 +13,8 @@ router.get('/login', function(req, res, next) {
 });
 
 module.exports = router;
+
+router.post('/checkAdmin', function(req,res,next){
+  res.json(req.body);
+  
+})

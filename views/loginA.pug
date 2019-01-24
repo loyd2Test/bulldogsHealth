@@ -41,12 +41,14 @@ block content
 
   div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
     //- h1 Join Now
-    form(action='/', method='post')
+    form(action='/admin/checkAdmin', method='POST')
           h1 Administrator Login
-          input.ghost-input(name='first', type='text', placeholder='Email', required='y')
+          input.ghost-input(name='first', type='text', placeholder='Username', required='y')
           br
           input.ghost-input(name='last', type='text', placeholder='Password', required='y')
           br
           br
           input.ghost-button(type='submit', value='Log In')
   br
+
+  
