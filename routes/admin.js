@@ -16,13 +16,27 @@ router.get('/login', function(req, res, next) {
 module.exports = router;
 
 router.post('/checkAdmin', function(req,res,next){
-  // models.Company.findOne({ where: {name: 'Florida Hospital'} }).then(function(comp) {
-  //   if (comp == null) {
-  //     res.send("No results found");
-  //   } else {
-  //     res.json(comp);
-  //   }
-  // });
+  models.Admin.findOne({ where: {userName: req.body.user} }).then(function(user) {
+    if (user == null) {
+      res.send("No results found");
+    } else {
+      if(user.password == req.body.pass){
+        console.log('user found');
+        // res.render('usersA', { title: 'Express' });
+        models.Candidate.findAll({
+        }).then(function(cands) {
+          res.render('usersA', {
+            title: 'Sequelize: Express Example',
+            cands: cands
+          });
+        }); 
+      }
+      // res.send(user);
+      // console.log('user found');
+      // res.send(user.lastName);
+      // console.log(user.userName,user.password,user.firstName);
+    }
+  });
   // res.json(req.body);
 // Current End
 })
