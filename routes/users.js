@@ -14,7 +14,7 @@ var models = require('../models');
 router.get('/', function(req, res, next) {
   models.Candidate.findAll({
   }).then(function(cands) {
-    res.render('usersA', {
+    res.render('dashboardA', {
       title: 'Sequelize: Express Example',
       cands: cands
     });

@@ -25,7 +25,7 @@ router.post('/checkAdmin', function(req,res,next){
         // res.render('usersA', { title: 'Express' });
         models.Candidate.findAll({
         }).then(function(cands) {
-          res.render('usersA', {
+          res.render('dashboardA', {
             title: 'Sequelize: Express Example',
             cands: cands
           });

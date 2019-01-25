@@ -1,0 +1,62 @@
+extends layoutA
+
+block content
+  main.col-md-9.ml-sm-auto.col-lg-100.px-4
+    div(class='container')
+      div(class='row')
+        div(class='col')
+          h2 Add Administrator
+          body
+            .container
+              form(action='/users/add', method='POST')
+                input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
+                br
+                input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
+                br
+                input.ghost-input(name='user', type='text', placeholder='Enter user name', required='y')
+                br
+                input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
+                br
+                input.ghost-input(name='pass', type='text', placeholder='Enter password', required='y')
+                br
+                input.ghost-button(type='submit', value='Submit')
+        div(class='col')
+          h2 Add user  
+          body
+            .container
+              form(action='/users/add', method='POST')
+                input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
+                br
+                input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
+                br
+                input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
+                br
+                input.ghost-input(name='pass', type='text', placeholder='Enter password', required='y')
+                br
+                input.ghost-button(type='submit', value='Submit')
+
+
+
+
+
+  main.col-md-9.ml-sm-auto.col-lg-10.px-4
+    br
+    br
+    h2 Users
+    .table-responsive
+      table.table.table-striped.table-sm
+        thead
+          tr
+          th User ID
+          th First Name
+          th Last Name
+          th Email Address
+        tbody
+          each cand in cands
+            tr
+            td #{cand.id}
+            td #{cand.firstName}
+            td #{cand.lastName}
+            td #{cand.email}
+          
+
