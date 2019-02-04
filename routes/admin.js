@@ -18,7 +18,7 @@ module.exports = router;
 router.post('/checkAdmin', function(req,res,next){
   models.Admin.findOne({ where: {userName: req.body.user} }).then(function(user) {
     if (user == null) {
-      res.send("No results found");
+      res.send("User not found");
     } else {
       if(user.password == req.body.pass){
         console.log('user found');
@@ -30,6 +30,10 @@ router.post('/checkAdmin', function(req,res,next){
             cands: cands
           });
         }); 
+      }
+      else{
+        res.send("Incorrect password for "+req.body.user);
+
       }
       // res.send(user);
       // console.log('user found');

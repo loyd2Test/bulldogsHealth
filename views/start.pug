@@ -57,13 +57,9 @@ block content
         td 4 days a week, 12pm to 9pm
         td nursing degree
 
-  div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
+  div(class ='checkIfUser',style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
     h1 Join Now
-    form(action='/', method='post')
-          input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
-          br
-          input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
-          br
+    form(action='/signUp/check', method='POST')
           input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
           br
           br
