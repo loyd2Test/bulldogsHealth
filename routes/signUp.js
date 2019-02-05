@@ -15,31 +15,14 @@ router.get('/login', function(req, res, next) {
 });
 
 module.exports = router;
-router.post('/check', function(req,res,next){
-  models.Candidate.findOne({ where: {email: req.body.email} }).then(function(user) {
-    if (user == null) {
-      res.render('signUp', { title: 'Express' });
-    } else {
-      if(user.email == req.body.email){
-        console.log('This user exists already');
-        
-      }
-      else{
-      }
-      // res.send(user);
-      // console.log('user found');
-      // res.send(user.lastName);
-      // console.log(user.userName,user.password,user.firstName);
-    }
-  });
-  // res.json(req.body);
-// Current End
+router.post('/check', function(req,res,next){ 
+  res.render('signUp', { title: 'Express' });
 })
 
 
 router.post('/new', function(req,res,next){
   // res.json(req.body);
-  models.Candidate.findOrCreate({where: {email: req.body.email}})
+  models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last}})
   .spread((user, created) => {
     console.log(user.get({
       plain: true

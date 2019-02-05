@@ -36,13 +36,15 @@ block content
   div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
     //- h1 Join Now
     form(action='/signUp/new', method='POST')
-          input.ghost-input(name='first', type='text', placeholder='Enter first name', required='y')
+          input.ghost-input(name='first', type='text', placeholder='First name', required='y')
           br
-          input.ghost-input(name='last', type='text', placeholder='Enter last name', required='y')
+          input.ghost-input(name='last', type='text', placeholder='Last name', required='y')
           br
-          input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
+          input.ghost-input(name='email', type='text', placeholder='Email', required='y')
           br
-          input.ghost-input(name='password', type='text', placeholder='Enter password', required='y')
+          input.ghost-input(name='password', type='text', placeholder='Password', required='y')
+          br
+          input.ghost-input(name='passwordConfirm', type='text', placeholder='Password', required='y', class='text-light')
           br
           br
           input.ghost-button(type='submit', value='Sign Up')
