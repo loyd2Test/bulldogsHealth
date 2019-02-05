@@ -11,6 +11,15 @@ block content
     border-radius: 4px;
     box-sizing: border-box;
     }
+     input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
     input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -42,10 +51,14 @@ block content
           br
           input.ghost-input(name='email', type='text', placeholder='Email', required='y')
           br
-          input.ghost-input(name='password', type='text', placeholder='Password', required='y')
+          input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y')
           br
-          input.ghost-input(name='passwordConfirm', type='text', placeholder='Password', required='y', class='text-light')
+          input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y')
           br
           br
+          //- script.
+          //-   if($('#p1').text == $('#p2').text){
+          //-     input.ghost-button(type='submit', value='Sign Up')
+          //-   }
           input.ghost-button(type='submit', value='Sign Up')
   br

@@ -21,19 +21,28 @@ router.post('/check', function(req,res,next){
 
 
 router.post('/new', function(req,res,next){
-  // res.json(req.body);
-  models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last}})
-  .spread((user, created) => {
-    console.log(user.get({
-      plain: true
-      
-    }))
-    if(created == true){
+  if(req.body.password == req.body.passwordConfirm){
+      // res.json(req.body);
+    models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last}})
+    .spread((user, created) => {
+      console.log(user.get({
+        plain: true
+        
+      }))
+      if(created == true){
 
-    }
-    console.log(created)
+      }
+      console.log(created)
 
-  })
+    })
+
+  }
+  else{
+    console.log('passwords don\'t match')
+    res.render('signUp')
+
+  }
+
   // models.Candidate.findOrCreate({ where: {email: req.body.email} }).then(function(user) {
   //   if (user == null) {
   //     res.send("User not found");
