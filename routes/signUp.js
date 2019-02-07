@@ -23,7 +23,7 @@ router.post('/check', function(req,res,next){
 router.post('/new', function(req,res,next){
   if(req.body.password == req.body.passwordConfirm){
       // res.json(req.body);
-    models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last}})
+    models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last, password: req.body.password}})
     .spread((user, created) => {
       console.log(user.get({
         plain: true
@@ -37,11 +37,7 @@ router.post('/new', function(req,res,next){
     })
 
   }
-  else{
-    console.log('passwords don\'t match')
-    res.render('signUp')
-
-  }
+ 
 
   // models.Candidate.findOrCreate({ where: {email: req.body.email} }).then(function(user) {
   //   if (user == null) {
