@@ -38,8 +38,27 @@ block content
     background-color: #f2f2f2;
     padding: 20px;
     }
+  head
+    //- script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
+    
+    script.
+    
+      function checkPasswordMatch() {
+        var password = $("#p1").val();
+        var confirmPassword = $("#p2").val();
 
+        if (password != confirmPassword)
+          $("#divCheckPasswordMatch").text("Passwords do not match!");
+        else
+          $("#divCheckPasswordMatch").text("Passwords match.");
+      }
 
+      $(document).ready(function () {
+        $("#p2").keyup(checkPasswordMatch);
+      });
+
+    //- script(src="/public/javascripts/checkPassword.js").
 
 
   div(style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
@@ -53,12 +72,15 @@ block content
           br
           input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y')
           br
-          input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y')
+          input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();')
           br
           br
-          //- script.
-          //-   if($('#p1').text == $('#p2').text){
-          //-     input.ghost-button(type='submit', value='Sign Up')
-          //-   }
+          p(id="divCheckPasswordMatch") 
           input.ghost-button(type='submit', value='Sign Up')
+          //- p(id="divCheckPasswordMatch")
+          //- div(class="registrationFormAlert" id="divCheckPasswordMatch")
+
+  
+
   br
+  
