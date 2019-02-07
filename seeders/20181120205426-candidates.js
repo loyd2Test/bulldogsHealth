@@ -13,11 +13,12 @@ module.exports = {
       }], {});
     */
       return queryInterface.bulkInsert('candidates', [{
-        firstName: 'Bob',
-        lastName: 'Smith',
-        email: 'bobsmith@gmail.com',
+        firstName: 'test',
+        lastName: '123',
+        email: 'test.com',
         address: '8321932 road',
         phone: '863-370-3213',
+        birthday:'01/01/1997',
         password: 'toor',
         createdAt: new Date(),
         updatedAt: new Date()

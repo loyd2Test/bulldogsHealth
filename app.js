@@ -11,7 +11,7 @@ var adminRouter = require('./routes/admin');
 var apiRouter = require('./routes/api');
 var companiesRouter = require('./routes/companies');
 var signUpRouter = require('./routes/signUp');
-// var adminRouter = require('./routes/admin');
+var userRouter = require('./routes/user');
 var app = express();
 
 // view engine setup
@@ -30,7 +30,7 @@ app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 app.use('/companies', companiesRouter);
 app.use('/signUp', signUpRouter);
-// app.use('/admin', adminRouter);
+app.use('/user', userRouter); 
 
 // app.use('/login', loginRouter);
 

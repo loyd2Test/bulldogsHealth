@@ -23,13 +23,19 @@ router.post('/check', function(req,res,next){
 router.post('/new', function(req,res,next){
   if(req.body.password == req.body.passwordConfirm){
       // res.json(req.body);
-    models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last, password: req.body.password}})
+    models.Candidate.findOrCreate({where: {email: req.body.email}, defaults:{firstName: req.body.first, lastName: req.body.last, password: req.body.password, birthday: req.body.birthday}})
     .spread((user, created) => {
       console.log(user.get({
         plain: true
         
       }))
       if(created == true){
+        models.Candidate.findOne({where:{email: user.email}
+        }).then(function(user) {
+          res.render('user', {
+            user
+          });
+        }); 
 
       }
       console.log(created)

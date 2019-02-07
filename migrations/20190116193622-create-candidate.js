@@ -20,6 +20,9 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
+      birthday: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },

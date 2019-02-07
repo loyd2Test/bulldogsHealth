@@ -43,7 +43,7 @@ block content
     //- script.
     
     //-   function checkPasswordMatch() {
-    //-     var password = $("#p1").val();
+        //- var password = $("#p1").val();
     //-     var confirmPassword = $("#p2").val();
 
     //-     if (password != confirmPassword)
@@ -66,16 +66,17 @@ block content
           br
           input.ghost-input(id = 'l',name='last', type='text', placeholder='Last name', required='y')
           br
-          //- input.ghost-input(id = 'b',name='birthday', type='text', placeholder='Email', required='y')
-          //- br
+          input.ghost-input(id = 'b',name='birthday', type='text', placeholder='Birthday (**/**/****)', required='y')
+          br
           input.ghost-input(id = 'm',name='email', type='text', placeholder='Email', required='y')
           br
-          input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y')
+          input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();' )
           br
           input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();')
           br
           br
           p(id="divCheckPasswordMatch") 
+          p(id="divCheckPasswordLen") 
           input.ghost-button(type='submit', value='Sign Up')
           //- p(id="divCheckPasswordMatch")
           //- div(class="registrationFormAlert" id="divCheckPasswordMatch")

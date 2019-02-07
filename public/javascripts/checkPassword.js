@@ -6,32 +6,34 @@ function checkPasswordMatch() {
     $('#divCheckPasswordMatch').text("Please enter a password");
     if (password != confirmPassword){
         $('#divCheckPasswordMatch').text("Passwords do not match!");
+        $('#divCheckPasswordLen').text("Password must be at least 8 characters");
     $("input[type=submit]").prop("disabled", true);}
+
+    // else{
+        
+    //     $("input[type=submit]").prop("disabled", false);
+    //         $('#divCheckPasswordMatch').text("Passwords match");
+        
+    // }
     
-    else{$('#divCheckPasswordMatch').text("Passwords match.");
-    $("input[type=submit]").prop("disabled", false);}
+    else{
+        $('#divCheckPasswordMatch').text("");
+        if(password.length<7){
+            $('#divCheckPasswordLen').text("Password must be at least 8 characters");
+            $("input[type=submit]").prop("disabled", true);
+        }
+        
+        else if(password.length>7){
+            $('#divCheckPasswordLen').text("");
+            $("input[type=submit]").prop("disabled", false);
+        }
+        
+    }
+
+
     
 }
 
 $(document).ready(function () {
     $("#p2").keyup(checkPasswordMatch);
 });
-
-
-// $(document).ready(function (){
-//     validate();
-//     $('#f, #l, #m, #p1, #p2').change(validate);
-// });
-
-// function validate(){
-//     if ($('#f').val().length   >   0   &&
-//         $('#l').val().length  >   0   &&
-//         $('#m').val().length  >   0   &&
-//         $('#p1').val().length  >   0   &&
-//         $('#p2').val().length    >   0) {
-//         $("input[type=submit]").prop("disabled", false);
-//     }
-//     else {
-//         $("input[type=submit]").prop("disabled", true);
-//     }
-// }
