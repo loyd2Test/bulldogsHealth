@@ -23,4 +23,10 @@ block content
                     td #{user.birthday}
                     td #{user.email}
                     td #{showPass}
+        //- script
+        //-     var user = #{user.firstName}
+        script(id='me',data-1=user.id,src="/javascripts/changeUserInfo.js").
+        button(id='checkIt',onclick='change();') Edit My Info
+        p(id='hi') hi
+        p(id='bye') hi
                     
