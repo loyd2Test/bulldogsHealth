@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../models');
+var models = require('/../models');
 
 function change() {
     var id = document.getElementById("me").getAttribute("data-1");
+    
     $('#hi').text(id);
     // var me = user;
     console.log(id);
