@@ -1,0 +1,26 @@
+extends layoutU
+block content
+
+    main.col-md-9.ml-sm-auto.col-lg-10.px-4
+        h1 My Info
+        .table-responsive
+            table.table.table-striped.table-sm
+                thead
+                tr
+                th Name
+                th UserName
+                th Email
+                th Password
+                tbody
+                    tr
+                    td #{user.name}
+                    td #{user.username}
+                    td #{user.email}
+                    td #{showPass}
+        //- script
+        //-     var user = #{user.firstName}
+        script(id='me',data-1=user.id,src="/javascripts/changeUserInfo.js").
+        button(id='checkIt',onclick='change();') Edit My Info
+        p(id='hi') hi
+        p(id='bye') hi
+                    

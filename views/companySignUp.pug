@@ -83,15 +83,13 @@ block content
 
   div(class="box")
     //- h1 Join Now
-    form(action='/signUp/new', method='POST')
-          h3 Sign-up for individuals
-          input.ghost-input(id = 'f', name='first', type='text', placeholder='First name', required='y')
+    form(action='/signUp/newCompany', method='POST')
+          h3 Sign-up for businesses
+          input.ghost-input(id = 'n', name='name', type='text', placeholder='Name', required='y')
           br
-          input.ghost-input(id = 'l',name='last', type='text', placeholder='Last name', required='y')
+          input.ghost-input(id = 'u',name='username', type='text', placeholder='Username', required='y')
           br
-          input.ghost-input(id = 'b',name='birthday', type='text', placeholder='Birthday (**/**/****)', required='y')
-          br
-          input.ghost-input(id = 'm',name='email', type='text', placeholder='Email', required='y')
+          input.ghost-input(id = 'e',name='email', type='text', placeholder='Email', required='y')
           br
           input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();' )
           br

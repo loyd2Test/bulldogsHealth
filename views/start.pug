@@ -11,6 +11,10 @@ block content
     border-radius: 4px;
     box-sizing: border-box;
     }
+    div[class=card]{
+      //- background-color:green;
+      //- height:5%;
+    }
     input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
@@ -28,54 +32,70 @@ block content
     border-radius: 5px;
     padding: 20px;
     }
+    
   
-  div(class = "seperate" style="padding-top:100px;padding-bottom:400px;")
-    div(class="about")
-      h1(style="text-align:center;") About Us
-      h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
+  div(class='jumbotron')
+    div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
+      div(class="about")
+        h1(style="text-align:center;") About Us
+        h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
+  
+  div(id="portfolio" class="container-fluid text-center bg-grey")
+    div(class='jumbotron')
+      h1(style="text-align:center;") Who We Are
+
+      div(class='row')
+        div(class='col-md-4')
+          div(class='card')
+            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image" class='portfolio')
+            div(class='card-body')
+              h3(class='card-title') Loyd Stewart II
+              p(class='card-text') Lead Programmer
+        div(class='col-md-4')
+          div(class='card')
+            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
+            div(class='card-body')
+              h3(class='card-title') Loyd Stewart II
+              p(class='card-text') Lead Programmer
+        div(class='col-md-4')
+          div(class='card')
+            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
+            div(class='card-body')
+              h3(class='card-title') Loyd Stewart II
+              p(class='card-text') Lead Programmer
+    
 
 
+  div(class='jumbotron')
+    h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
+    .table-responsive
+      table.table.table-striped.table-sm
+        thead
+          tr
+          th Job ID
+          th Title
+          th Location
+          th Availability
+          th Details
+          th Certifications
+        tbody
+          tr
+          td 01
+          td Registered Nurse/RN
+          td Orlando, FL
+          td Open
+          td 4 days a week, 12pm to 9pm
+          td nursing degree
 
+    div(class ='checkIfUser',style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
+      h1 What would you like to do?
+      form(action='/signUp/check', method='POST')
+        div
+          h4 Find a job
+          input(type="radio", name="type" value='I' checked) 
+        div
+          h4 Post a job
+          input(type="radio", name="type" value='B')
+        input.ghost-button(type='submit', value='Sign Up')
+    br
 
-  h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
-  .table-responsive
-    table.table.table-striped.table-sm
-      thead
-        tr
-        th Job ID
-        th Title
-        th Location
-        th Availability
-        th Details
-        th Certifications
-      tbody
-        tr
-        td 01
-        td Registered Nurse/RN
-        td Orlando, FL
-        td Open
-        td 4 days a week, 12pm to 9pm
-        td nursing degree
-
-  div(class ='checkIfUser',style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
-    h1 Join Now
-    form(action='/signUp/check', method='POST')
-          //- input.ghost-input(name='email', type='text', placeholder='Enter email', required='y')
-          //- br
-          //- br
-          input.ghost-button(type='submit', value='Sign Up')
-  br
-
-  //- <div class="form-group">
-  //-   <label for="inputPassword" class="control-label">Password</label>
-  //-   <div class="form-inline row">
-  //-     <div class="form-group col-sm-6">
-  //-       <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
-  //-       <div class="help-block">Minimum of 6 characters</div>
-  //-     </div>
-  //-     <div class="form-group col-sm-6">
-  //-       <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
-  //-       <div class="help-block with-errors"></div>
-  //-     </div>
-  //-   </div>
-  //- </div>

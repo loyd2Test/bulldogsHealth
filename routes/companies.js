@@ -15,3 +15,9 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+router.get('/companyLogin', function(req, res, next) {
+  res.render('companyLogin', { title: 'Express' });
+});
+
+module.exports = router;

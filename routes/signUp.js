@@ -16,7 +16,15 @@ router.get('/login', function(req, res, next) {
 
 module.exports = router;
 router.post('/check', function(req,res,next){ 
-  res.render('signUp', { title: 'Express' });
+  var which = req.body.type;
+  console.log(which);
+  if(which == 'I'){
+    res.render('signUp', { title: 'Express' });
+  }
+  else{
+    res.render('companySignUp', { title: 'Express' });
+  }
+  
 })
 
 
@@ -72,5 +80,31 @@ router.post('/new', function(req,res,next){
   // });
 
   
+
+})
+router.post('/newCompany', function(req,res,next){
+  if(req.body.password == req.body.passwordConfirm){
+      // res.json(req.body);
+    models.Company.findOrCreate({where: {name: req.body.name}, defaults:{email:req.body.email, username: req.body.username, password: req.body.password}})
+    .spread((user, created) => {
+      console.log(user.get({
+        plain: true
+        
+      }))
+      if(created == true){
+        models.Company.findOne({where:{email: user.email}
+        }).then(function(user) {
+          res.render('companyUser', {
+            user
+          });
+        }); 
+
+      }
+      console.log(created)
+
+    })
+
+  }
+ 
 
 })
