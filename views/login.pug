@@ -64,12 +64,11 @@ block content
           input.ghost-button(type='submit', value='Log In')
   br
 
-  
-  div(class="blue-square-container")
-    div(style="width: 40%;padding: 10px 10px;margin: 0 auto")
-      a Are you a registered business?
-        a.nav-link(style="color:#45a049",href="companies/companyLogin") Sign In
 
-  div(style="width: 40%;padding: 10px 10px;margin: 0 auto")
-    a Not a member?
+  h4 Are you a registered business?
+  button(type='button' class='btn btn-default')
+      a.nav-link(style="color:#45a049",href="companies/companyLogin") Sign In
+
+  h4 Not a member?
+  button(type='button' class='btn btn-default')
     a.nav-link(style="color:#45a049",href="/signUp") Sign Up

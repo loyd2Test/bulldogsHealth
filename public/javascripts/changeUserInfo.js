@@ -6,8 +6,8 @@ function change() {
     var id = document.getElementById("me").getAttribute("data-1");
     $('#hi').text(id);
     // var me = user;
-    // console.log(me);
-    models.Candidate.findOne({where:{id: id}}).then(function(user) {
+    console.log(id);
+    models.Company.findOne({where:{id: id}}).then(function(user) {
     //   res.render('user', {user});
         $('#bye').text(user.firstName);
     });

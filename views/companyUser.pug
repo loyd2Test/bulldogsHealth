@@ -2,23 +2,55 @@ extends layoutU
 block content
 
     main.col-md-9.ml-sm-auto.col-lg-10.px-4
-        h1 My Info
-        .table-responsive
-            table.table.table-striped.table-sm
-                thead
-                tr
-                th Name
-                th UserName
-                th Email
-                th Password
-                tbody
+
+        div(class='jumbotron') 
+            strong
+                h1(class='text-uppercase text-center') #{user.name}
+        <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">View My Info</button>
+        div(id="myInfo" class="collapse")
+            h1 My Information
+            .table-responsive
+                table.table.table-striped.table-sm
+                    thead
                     tr
-                    td #{user.name}
-                    td #{user.username}
-                    td #{user.email}
-                    td #{showPass}
+                    th Name
+                    th UserName
+                    th Email
+                    th Password
+                    tbody
+                        tr
+                        td #{user.name}
+                        td #{user.username}
+                        td #{user.email}
+                        td #{showPass}
+        br
+        br
+        <button data-toggle="collapse" class="btn btn-success" data-target="#myPostings">View My Job Posts</button>
+        div(id="myPostings" class="collapse")
+            h1 My Job Postings
+            .table-responsive
+                table.table.table-striped.table-sm
+                    thead
+                    tr
+                    th Job ID
+                    tbody
+            button() Add New Job
+        br
+        br
+        <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
+        div(id="assosciated" class="collapse")
+            h1 Assosciated Logins
+            h5 (users who can access/change your organizational data)
+            .table-responsive
+                table.table.table-striped.table-sm
+                    thead
+                    tr
+                    th UserName
+                    tbody
         //- script
         //-     var user = #{user.firstName}
+        br
+        br
         script(id='me',data-1=user.id,src="/javascripts/changeUserInfo.js").
         button(id='checkIt',onclick='change();') Edit My Info
         p(id='hi') hi
