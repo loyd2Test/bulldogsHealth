@@ -17,12 +17,14 @@ block content
                     th UserName
                     th Email
                     th Password
+                    th External Website
                     tbody
                         tr
                         td #{user.name}
                         td #{user.username}
                         td #{user.email}
                         td #{showPass}
+                        td #{user.website}
         br
         br
         <button data-toggle="collapse" class="btn btn-success" data-target="#myPostings">View My Job Posts</button>
@@ -51,8 +53,21 @@ block content
         //-     var user = #{user.firstName}
         br
         br
-        script(id='me',data-1=user.id,src="/changeUserInfo.js").
-        button(id='checkIt',onclick='change();') Edit My Info
-        p(id='hi') hi
-        p(id='bye') hi
-                    
+        //- form(action="/api/find-user" method="POST")
+            //- input.ghost-input(type="text" id='id' name="id" placeholder='id' required='y')
+            //- input(type="text" placeholder='something')
+            //- button(type='submit' value=1 id='passInfo') Click Me
+            //- button(name="id" value="1") Find User
+       
+        //- script(id='me',data-1=user.id,src="/api/test.js").
+        //- button(id='checkIt',onclick='findUser();') Edit My Info
+        //- p(id='hi') hi
+        //- p(id='bye') hi
+        
+   
+        form(action='/api/find-user', method='post')
+            h3 Sign-up for businesses
+            input.ghost-input(id = 'id', name='myId', type='text', required='y')
+            br
+            br
+            input.ghost-button(type='submit')

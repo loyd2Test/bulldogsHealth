@@ -12,7 +12,11 @@ var apiRouter = require('./routes/api');
 var companiesRouter = require('./routes/companies');
 var signUpRouter = require('./routes/signUp');
 var userRouter = require('./routes/user');
+var scriptRouter = require('./routes/myJS');
 var app = express();
+
+// var myJavascriptsRouter = require('./myJavascripts/test');
+// app.use('/myJS', myJavascriptsRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +35,7 @@ app.use('/api', apiRouter);
 app.use('/companies', companiesRouter);
 app.use('/signUp', signUpRouter);
 app.use('/user', userRouter); 
+app.use('/myJS', scriptRouter);
 
 // app.use('/login', loginRouter);
 
