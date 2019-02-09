@@ -43,27 +43,51 @@ block content
                     tbody
         br
         br
-        <button data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
+        <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
         div(id="myPostings" class="collapse")
-            form(action='/api/new-job', method='post')
+            iframe(name='formDestination' style='display:none')
+            form(action='/api/new-job', method='post' target='formDestination')
                 br
                 h3 Please fill out all fields
-                input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
+                input.ghost-input(name='title', type='text', required='n' placeholder='job Title')
                 br
-                input.ghost-input(name='city', type='text', required='y' placeholder='City')
+                input.ghost-input(name='city', type='text', required='n' placeholder='City')
                 br
-                input.ghost-input(name='state', type='text', required='y' placeholder='State (abbreviation)')
+                input.ghost-input(name='state', type='text', required='n' placeholder='State (abbreviation)')
                 br
-                input.ghost-input(name='startDate', type='text', required='y' placeholder='Start Date **/**/****')
+                input.ghost-input(name='startDate', type='text', required='n' placeholder='Start Date **/**/****')
                 br
                 input.ghost-input(name='endDate', type='text', required='n' placeholder='End Date **/**/**** (If Applicable)')
                 br
-                input.ghost-input(name='description', type='text', required='y' placeholder='Description')
+                input.ghost-input(name='description', type='text', required='n' placeholder='Description')
+                br
+                input(type="hidden" name="id" value=user.id)
                 br
                 br
-                input.ghost-button(type='submit' class='btn btn-danger' placeholder='Submit' name='id' value=user.id)
+                input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
         br
         br
+        //- script.
+        //-     document.getElementById('secondary').addEventListener("click", function(event) {
+        //-         (function(event) {
+        //-             alert(this);
+        //-         }).call(document.getElementById('click_me'), event);
+        //-     });
+        
+
+        //- button(onclick=function(){alert('HEY')})
+
+        a(href='#' id="click_me") click here
+        script.
+            document.getElementById('secondary').addEventListener("click", function() {
+                document.getElementById("primary").click();
+
+
+                
+                //- alert(Thanks);
+                
+            });
+            
         //- form(action="/api/find-user" method="POST")
             //- input.ghost-input(type="text" id='id' name="id" placeholder='id' required='y')
             //- input(type="text" placeholder='something')
