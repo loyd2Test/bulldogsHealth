@@ -25,7 +25,9 @@ router.post('/new-job', function(req, res, next) {
       plain: true
       
     }))
-    // if(created == true){
+    if(created == true){
+      res.render('companyUser',{user,created});
+   
       // models.Job.findOne({where:{email: user.email}
       // }).then(function(user) {
       //   res.render('companyUser', {
@@ -33,8 +35,14 @@ router.post('/new-job', function(req, res, next) {
       //   });
       // }); 
 
-    // }
+    }
     console.log(created)
 
   })
 });
+
+
+function checkNewjob(){
+  console.log("Hi there")
+
+}

@@ -43,23 +43,27 @@ block content
                     tbody
         br
         br
+       
         <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
         div(id="myPostings" class="collapse")
             iframe(name='formDestination' style='display:none')
             form(action='/api/new-job', method='post' target='formDestination')
                 br
                 h3 Please fill out all fields
-                input.ghost-input(name='title', type='text', required='n' placeholder='job Title')
+                input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
                 br
-                input.ghost-input(name='city', type='text', required='n' placeholder='City')
+                input.ghost-input(name='city', type='text', required='y' placeholder='City')
                 br
-                input.ghost-input(name='state', type='text', required='n' placeholder='State (abbreviation)')
+                input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
+                p(id='stateCheck' style='display:none')
                 br
-                input.ghost-input(name='startDate', type='text', required='n' placeholder='Start Date **/**/****')
+                input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
+                p(id='startCheck' style='display:none')
                 br
-                input.ghost-input(name='endDate', type='text', required='n' placeholder='End Date **/**/**** (If Applicable)')
+                input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
+                p(id='endCheck' style='display:none')
                 br
-                input.ghost-input(name='description', type='text', required='n' placeholder='Description')
+                input.ghost-input(name='description', type='text', required='y' placeholder='Description')
                 br
                 input(type="hidden" name="id" value=user.id)
                 br
@@ -68,23 +72,29 @@ block content
         br
         br
         //- script.
-        //-     document.getElementById('secondary').addEventListener("click", function(event) {
-        //-         (function(event) {
-        //-             alert(this);
-        //-         }).call(document.getElementById('click_me'), event);
-        //-     });
+        //-     var startDate = document.getElementById('sd');
+        //-     var timeout = null;
+        //-     startDate.onkeyup = function(e){
+        //-         clearTimeout(timeout);
+        //-         //- timeout = setTimeout(function(){alert("hi");},500);
+        //-         timeout = setTimeout(function(){inputCheck();},1000);
+
+        //-     };
         
+        //- script.
+        //-     function checkNew() {
+        //-         //- alert('Jop Posted Successfully!');
+        //-         if (created == true){
+        //-             alert('Jop Posted Successfully!');
 
-        //- button(onclick=function(){alert('HEY')})
-
-        a(href='#' id="click_me") click here
+        //-         }
+            
+        //-     }
+        //-     window.onload = checkNew; 
         script.
             document.getElementById('secondary').addEventListener("click", function() {
                 document.getElementById("primary").click();
-
-
-                
-                //- alert(Thanks);
+                //- alert('Job Creation Successful!');
                 
             });
             
