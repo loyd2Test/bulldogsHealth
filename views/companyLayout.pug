@@ -12,23 +12,25 @@ html
       li.nav-item.text-nowrap
       a.nav-link(href="/") Sign out
 
-  .container-fluid
-    .row
-      nav.col-md-2.d-none.d-md-block.bg-light.sidebar
-        .sidebar-sticky
-          ul.nav.flex-column
-            li.nav-item
-              a.nav-link.active(href="/") Dashboard
+  //- .container-fluid
+  //-   .row
+  //-     nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+  //-       .sidebar-sticky
+  //-         ul.nav.flex-column
+  //-           li.nav-item
+  //-             a.nav-link.active(href="/") Dashboard
 
 
-          h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-            Saved Options
-          a.d-flex.align-items-center.text-muted(href="#")
-          span(data-feather="plus-circle")
-            ul.nav.flex-column.mb-2
-              li.nav-item
-                a.nav-link(href="/users") My Job Posts
-                a.nav-link(href="/companies") Browse Jobs
+  //-         h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+  //-           Saved Options
+  //-         a.d-flex.align-items-center.text-muted(href="#")
+  //-         span(data-feather="plus-circle")
+  //-           ul.nav.flex-column.mb-2
+  //-             li.nav-item
+  //-               //- form(action="/companies/my-jobs", method="post")
+  //-               //-   button(type="submit" value='1')
+  //-               a.nav-link(href="/companies/my-jobs" value='1') My Job Posts
+  //-               a.nav-link(href="/companies") Browse Jobs
   block content
   script(src='/javascripts/jquery.min.js')
   script(src='/javascripts/bootstrap.min.js')
@@ -55,7 +57,19 @@ html
     box-sizing: border-box;
     }
     input[type=submit] {
-    width: 100%;
+    width: 30%;
+    //- background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    
+    button {
+    width: 30%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -64,17 +78,7 @@ html
     border-radius: 4px;
     cursor: pointer;
     }
-    input[type=submitCompany] {
-    width: 30%;
-    color: white;
-    padding: 10px 10px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    
-    button {
+    button[class=newUser] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -102,6 +106,30 @@ html
       border-radius: 10px;
       border-color:#45a049;
       box-sizing: border-box;
+
+    }
+    div[class=container-fluid]{
+      text-align:center;
+      //- width: 100%;
+      //- padding: 12px 20px;
+      //- margin: 8px 0;
+      //- display: inline-block;
+      //- border: 10px solid #ccc;
+      //- border-radius: 10px;
+      //- border-color:#45a049;
+      //- box-sizing: border-box;
+
+    }
+    div[class=newUser]{
+      text-align:left;
+      //- width: 100%;
+      //- padding: 12px 20px;
+      //- margin: 8px 0;
+      //- display: inline-block;
+      //- border: 10px solid #ccc;
+      //- border-radius: 10px;
+      //- border-color:#45a049;
+      //- box-sizing: border-box;
 
     }
     

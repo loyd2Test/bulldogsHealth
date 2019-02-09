@@ -1,7 +1,8 @@
 extends companyLayout
 block content
 
-    main.col-md-9.ml-sm-auto.col-lg-10.px-4
+    //- main.col-md-9.ml-sm-auto.col-lg-10.px-4
+    main
 
         div(class='jumbotron') 
             strong
@@ -23,54 +24,146 @@ block content
                         td #{user.email}
                         td #{showPass}
                         td #{user.website}
+        div(class='container-fluid')
+            div(class="row")
+                div(class='col-md-12')
+                    <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">Edit My Info</button>
+                    div(id="myInfo" class="collapse")
+                        h1 What Would You Like To Change?
+                    
+                br
+                br
+            div(class="row")
+                div(class='col-md-12')
+                    <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
+                        div(id="assosciated" class="collapse")
+                            h1 Assosciated Logins
+                            h5 (users who can access/change your organizational data)
+                            .table-responsive
+                                table.table.table-striped.table-sm
+                                    thead
+                                    tr
+                                    th UserName
+                                    tbody
+                            div(class='newUser')
+                                <button data-toggle="collapse" class="btn btn-success" text-align='left' data-target="#newUser">Add a login</button>
+                                    div(id="newUser" class="collapse")
+                        br
+            div(class="row")
+                div(class='col-md-12')
+                    <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
+                    div(id="myPostings" class="collapse")
+                        iframe(name='formDestination' style='display:none')
+                        form(action='/api/new-job', method='post' target='formDestination')
+                            br
+                            h3 Please fill out all fields
+                            input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
+                            br
+                            input.ghost-input(name='city', type='text', required='y' placeholder='City')
+                            br
+                            input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
+                            p(id='stateCheck' style='display:none')
+                            br
+                            input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
+                            p(id='startCheck' style='display:none')
+                            br
+                            input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
+                            p(id='endCheck' style='display:none')
+                            br
+                            input.ghost-input(name='description', type='text', required='y' placeholder='Description')
+                            br
+                            input(type="hidden" name="id" value=user.id)
+                            br
+                            br
+                            input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
+                    br
+            div(class="row")
+                div(class='col-md-12')
+                    <button data-toggle="collapse" class="btn btn-success" data-target="#myJobs">View Listed Jobs</button>
+                    div(id="myJobs" class="collapse")
+                        h1 Posted Jobs
+                        .table-responsive
+                            table.table.table-striped.table-sm
+                                thead
+                                tr
+                                th Job Title
+                                th Filled (y or n)
+                                tbody
+                                each job in jobs
+                                    tr
+                                    td #{job.title}
+                                    td #{job.filled}
 
-        <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">Edit My Info</button>
-        div(id="myInfo" class="collapse")
-            h1 What Would You Like To Change?
+                        
+                    br
+                    br
+        //- <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">Edit My Info</button>
+        //- div(id="myInfo" class="collapse")
+        //-     h1 What Would You Like To Change?
             
-        br
-        br
+        //- br
+        //- br
         
-        <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
-        div(id="assosciated" class="collapse")
-            h1 Assosciated Logins
-            h5 (users who can access/change your organizational data)
-            .table-responsive
-                table.table.table-striped.table-sm
-                    thead
-                    tr
-                    th UserName
-                    tbody
-        br
-        br
+        //- <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
+        //- div(id="assosciated" class="collapse")
+        //-     h1 Assosciated Logins
+        //-     h5 (users who can access/change your organizational data)
+        //-     .table-responsive
+        //-         table.table.table-striped.table-sm
+        //-             thead
+        //-             tr
+        //-             th UserName
+        //-             tbody
+        //- br
+        //- br
        
-        <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
-        div(id="myPostings" class="collapse")
-            iframe(name='formDestination' style='display:none')
-            form(action='/api/new-job', method='post' target='formDestination')
-                br
-                h3 Please fill out all fields
-                input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
-                br
-                input.ghost-input(name='city', type='text', required='y' placeholder='City')
-                br
-                input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
-                p(id='stateCheck' style='display:none')
-                br
-                input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
-                p(id='startCheck' style='display:none')
-                br
-                input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
-                p(id='endCheck' style='display:none')
-                br
-                input.ghost-input(name='description', type='text', required='y' placeholder='Description')
-                br
-                input(type="hidden" name="id" value=user.id)
-                br
-                br
-                input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
-        br
-        br
+        //- <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
+        //- div(id="myPostings" class="collapse")
+        //-     iframe(name='formDestination' style='display:none')
+        //-     form(action='/api/new-job', method='post' target='formDestination')
+        //-         br
+        //-         h3 Please fill out all fields
+        //-         input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
+        //-         br
+        //-         input.ghost-input(name='city', type='text', required='y' placeholder='City')
+        //-         br
+        //-         input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
+        //-         p(id='stateCheck' style='display:none')
+        //-         br
+        //-         input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
+        //-         p(id='startCheck' style='display:none')
+        //-         br
+        //-         input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
+        //-         p(id='endCheck' style='display:none')
+        //-         br
+        //-         input.ghost-input(name='description', type='text', required='y' placeholder='Description')
+        //-         br
+        //-         input(type="hidden" name="id" value=user.id)
+        //-         br
+        //-         br
+        //-         input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
+        //- br
+        //- br
+        //- <button data-toggle="collapse" class="btn btn-success" data-target="#myJobs">View Listed Jobs</button>
+        //- div(id="myJobs" class="collapse")
+        //-     h1 Posted Jobs
+        //-     .table-responsive
+        //-         table.table.table-striped.table-sm
+        //-             thead
+        //-             tr
+        //-             th Job Title
+        //-             th Filled (y or n)
+        //-             tbody
+        //-             each job in jobs
+        //-                 tr
+        //-                 td #{job.title}
+        //-                 td #{job.filled}
+
+            
+        //- br
+        //- br
+
+        //- $$$$$$$$$$$$$$$$$$$$OLD$$$$$$$$$$$$$$$$$$$$
         //- script.
         //-     var startDate = document.getElementById('sd');
         //-     var timeout = null;
@@ -94,7 +187,7 @@ block content
         script.
             document.getElementById('secondary').addEventListener("click", function() {
                 document.getElementById("primary").click();
-                //- alert('Job Creation Successful!');
+                alert('Job Creation Successful!');
                 
             });
             

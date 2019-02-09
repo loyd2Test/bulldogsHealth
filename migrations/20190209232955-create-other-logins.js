@@ -1,33 +1,18 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Jobs', {
+    return queryInterface.createTable('otherLogins', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      username: {
         type: Sequelize.STRING
       },
-      city: {
+      password: {
         type: Sequelize.STRING
-      },
-      state: {
-        type: Sequelize.CHAR(3)
-      },
-      startDate: {
-        type: Sequelize.DATEONLY
-      },
-      endDate: {
-        type: Sequelize.DATEONLY
-      },
-      description: {
-        type: Sequelize.TEXT('medium')
-      },
-      filled: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -37,10 +22,18 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-       
+      companyId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Companies',
+          key: 'id',
+          as: 'companyId'
+        },
+      }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Jobs');
+    return queryInterface.dropTable('otherLogins');
   }
 };

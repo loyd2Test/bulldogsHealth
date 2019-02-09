@@ -24,6 +24,7 @@ module.exports = router;
 
 
 router.post('/check', function(req,res,next){
+  // models.Job.findAll({where:{companyId: value}}).then(function(jobs){}),
   models.Company.findOne({ where: {username: req.body.username} }).then(function(user) {
     if (user == null) {
       res.send("User not found");
@@ -43,9 +44,13 @@ router.post('/check', function(req,res,next){
         }
         showPass = showPass + hidePass;
         console.log(showPass);
+        models.Job.findAll({where:{companyId: user.id}}).then(function(jobs){
+          res.render('companyUser',{user,showPass,jobs});
+
+        });
 
 
-        res.render('companyUser',{user,showPass});
+        // res.render('companyUser',{user,showPass,jobs});
       }
       else{
         res.send("Incorrect password for "+req.body.user);
@@ -63,6 +68,15 @@ router.post('/check', function(req,res,next){
   });
 })
 module.exports = router;
+
+// router.get('/my-jobs', function(req, res, next) {
+//   models.Job.findAll({where:{companyId: value}}).then(function(jobs) {
+//     res.render('companyJobPosts', {
+//       title: 'My Job Posts',
+//       jobs: jobs
+//     });
+//   }); 
+// });
 
 
 
