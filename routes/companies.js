@@ -66,9 +66,9 @@ module.exports = router;
 
 
 
-router.post('/find-user', function(req, res, next) {
-  console.log(req.body)
-  console.log('This is me')
-  var id = req.body.myId;
-  console.log('hi there ' + id);
-});
+// router.post('/find-user', function(req, res, next) {
+//   console.log(req.body)
+//   console.log('This is me')
+//   var id = req.body.myId;
+//   console.log('hi there ' + id);
+// });

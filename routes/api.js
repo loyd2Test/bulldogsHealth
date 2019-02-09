@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -13,4 +14,27 @@ router.post('/find-user', function(req, res, next) {
   console.log('This is me')
   var id = req.body.myId;
   console.log('hi there ' + id);
+});
+
+router.post('/new-job', function(req, res, next) {
+  var id = req.body.id;
+  console.log(id);
+  models.Job.findOrCreate({where: {title: req.body.title, companyId: id}, defaults:{city:req.body.city, state:req.body.state, startDate:req.body.startDate, endDate:req.body.endDate, description:req.body.description}})
+  .spread((user, created) => {
+    console.log(user.get({
+      plain: true
+      
+    }))
+    if(created == true){
+      // models.Job.findOne({where:{email: user.email}
+      // }).then(function(user) {
+      //   res.render('companyUser', {
+      //     user
+      //   });
+      // }); 
+
+    }
+    console.log(created)
+
+  })
 });

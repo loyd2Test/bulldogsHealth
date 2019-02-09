@@ -1,4 +1,4 @@
-extends layoutU
+extends companyLayout
 block content
 
     main.col-md-9.ml-sm-auto.col-lg-10.px-4
@@ -6,9 +6,7 @@ block content
         div(class='jumbotron') 
             strong
                 h1(class='text-uppercase text-center') #{user.name}
-        <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">View My Info</button>
-        div(id="myInfo" class="collapse")
-            h1 My Information
+                br
             .table-responsive
                 table.table.table-striped.table-sm
                     thead
@@ -25,20 +23,14 @@ block content
                         td #{user.email}
                         td #{showPass}
                         td #{user.website}
+
+        <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">Edit My Info</button>
+        div(id="myInfo" class="collapse")
+            h1 What Would You Like To Change?
+            
         br
         br
-        <button data-toggle="collapse" class="btn btn-success" data-target="#myPostings">View My Job Posts</button>
-        div(id="myPostings" class="collapse")
-            h1 My Job Postings
-            .table-responsive
-                table.table.table-striped.table-sm
-                    thead
-                    tr
-                    th Job ID
-                    tbody
-            button() Add New Job
-        br
-        br
+        
         <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
         div(id="assosciated" class="collapse")
             h1 Assosciated Logins
@@ -49,8 +41,27 @@ block content
                     tr
                     th UserName
                     tbody
-        //- script
-        //-     var user = #{user.firstName}
+        br
+        br
+        <button data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
+        div(id="myPostings" class="collapse")
+            form(action='/api/new-job', method='post')
+                br
+                h3 Please fill out all fields
+                input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
+                br
+                input.ghost-input(name='city', type='text', required='y' placeholder='City')
+                br
+                input.ghost-input(name='state', type='text', required='y' placeholder='State (abbreviation)')
+                br
+                input.ghost-input(name='startDate', type='text', required='y' placeholder='Start Date **/**/****')
+                br
+                input.ghost-input(name='endDate', type='text', required='n' placeholder='End Date **/**/**** (If Applicable)')
+                br
+                input.ghost-input(name='description', type='text', required='y' placeholder='Description')
+                br
+                br
+                input.ghost-button(type='submit' class='btn btn-danger' placeholder='Submit' name='id' value=user.id)
         br
         br
         //- form(action="/api/find-user" method="POST")
@@ -65,9 +76,9 @@ block content
         //- p(id='bye') hi
         
    
-        form(action='/api/find-user', method='post')
-            h3 Sign-up for businesses
-            input.ghost-input(id = 'id', name='myId', type='text', required='y')
-            br
-            br
-            input.ghost-button(type='submit')
+        //- form(action='/api/find-user', method='post')
+        //-     h3 Sign-up for businesses
+        //-     input.ghost-input(id = 'id', name='myId', type='text', required='y')
+        //-     br
+        //-     br
+        //-     input.ghost-button(type='submit')
