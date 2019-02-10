@@ -12,6 +12,9 @@ html
       li.nav-item.text-nowrap
       a.nav-link(href="/") Sign out
 
+  nav.navbar.navbar-dark.fixed-bottom.bg-dark.flex-md-nowrap.p-0.shadow
+    a.navbar-brand.col-sm-12.col-md-12.mr-0(href='/') © 2019 Bulldogs Health
+
   //- .container-fluid
   //-   .row
   //-     nav.col-md-2.d-none.d-md-block.bg-light.sidebar
@@ -70,7 +73,7 @@ html
     
     button {
     width: 50%;
-    background-color: #4CAF50;
+    background-color: #08B2E3;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -91,11 +94,11 @@ html
     input[type=submit]:hover {
     background-color: #45a049;
     }
-    //- div {
-    //- border-radius: 5px;
-    //- background-color: #f2f2f2;
-    //- padding: 20px;
-    //- }
+    div[class='company info'] {
+    border-radius: 5px;
+    background-color: #45a049;
+    padding: 20px;
+    }
     div[class=box]{
       text-align:center;
       width: 100%;
@@ -107,6 +110,9 @@ html
       border-color:#45a049;
       box-sizing: border-box;
 
+    }
+    div[class=test]{
+      flex: .1 .2;
     }
     div[class=container-fluid]{
       text-align:center;

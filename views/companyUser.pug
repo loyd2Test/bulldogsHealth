@@ -4,7 +4,7 @@ block content
     //- main.col-md-9.ml-sm-auto.col-lg-10.px-4
     main
         //- Company Header
-        div(class='jumbotron') 
+        div(class='jumbotron' style="background:transparent") 
             strong
                 h1(class='text-uppercase text-center') #{user.name}
                 br
@@ -24,88 +24,106 @@ block content
                         td #{user.email}
                         td #{showPass}
                         td #{user.website}
+            //- div(class="row")
+            //-     div(class='col-md-3')
+            //-         form(action='/api/new-job', method='post' target='formDestination')
+            //-         input.ghost-button(id='secondary' type='submit' class='btn btn-danger' value='Edit My Info' style='width: 100%')
+            //-     div(class='col-md-3')
+            //-         form(action='/api/new-job', method='post' target='formDestination')
+            //-         input.ghost-button(id='secondary' type='submit' class='btn btn-danger' value='Assosciated Accounts' style='width: 100%')
+            //-     div(class='col-md-3')
+            //-         form(action='/api/new-job', method='post' target='formDestination')
+            //-         input.ghost-button(id='secondary' type='submit' class='btn btn-danger' value='Post New Job' style='width: 100%')
+            //-     div(class='col-md-3')
+            //-         form(action='/api/new-job', method='post' target='formDestination')
+            //-         input.ghost-button(id='secondary' type='submit' class='btn btn-danger' value='View Posted Jobs' style='width: 100%')
 
         //- Change user info                
         div(class='container-fluid')
-            div(class='jumbotron') 
+            
+            
+            //- Post a new job
+            div(class='jumbotron' style="background:#08B2E3;") 
                 div(class="row")
                     div(class='col-md-12')
-                        <button data-toggle="collapse" class="btn btn-success" data-target="#myInfo">Edit My Info</button>
+                        <button id='primary' data-toggle="collapse" class="" data-target="#myPostings">Post New Job</button>
+                        div(id="myPostings" class="collapse")
+                            div(class='jumbotron')
+                                iframe(name='formDestination' style='display:none')
+                                form(action='/api/new-job', method='post' target='formDestination')
+                                    br
+                                    h3 Please fill out all fields
+                                    input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
+                                    //- br
+                                    input.ghost-input(name='city', type='text', required='y' placeholder='City')
+                                    //- br
+                                    input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
+                                    p(id='stateCheck' style='display:none')
+                                    //- br
+                                    input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
+                                    p(id='startCheck' style='display:none')
+                                    //- br
+                                    input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
+                                    p(id='endCheck' style='display:none')
+                                    //- br
+                                    input.ghost-input(name='description', type='text', required='y' placeholder='Description')
+                                    //- br
+                                    input(type="hidden" name="id" value=user.id)
+                                    //- br
+                                    //- br
+                                    input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
+                        br
+
+            //- List posted jobs
+            div(class='jumbotron' style="background:#08B2E3") 
+                div(class="row")
+                    div(class='col-md-12')
+                        <button data-toggle="collapse" class="" data-target="#myJobs">View Posted Jobs</button>
+                        div(id="myJobs" class="collapse")
+                            div(class='jumbotron')
+                                h1 Posted Jobs
+                                .table-responsive
+                                    table.table.table-striped.table-sm
+                                        thead
+                                        tr
+                                        th Job Title
+                                        th Filled (y or n)
+                                        tbody
+                                        each job in jobs
+                                            tr
+                                            td #{job.title}
+                                            td #{job.filled}
+
+            div(class='jumbotron' style="background:#08B2E3") 
+                div(class="row")
+                    div(class='col-md-12')
+                        button(data-toggle="collapse" class="" data-target="#myInfo") Edit My Info
                         div(id="myInfo" class="collapse")
-                            h1 What Would You Like To Change?
+                            div(class='jumbotron')
+                                h1 What Would You Like To Change?
                         
                     br
                     br
 
             //- Assosciated logins  
-            div(class='jumbotron') 
+            div(class='jumbotron' style="background:#08B2E3") 
                 div(class="row")
                     div(class='col-md-12')
-                        <button data-toggle="collapse" class="btn btn-success" data-target="#assosciated">View Assosciated Accounts</button>
+                        <button data-toggle="collapse" class="" data-target="#assosciated">View Assosciated Accounts</button>
                             div(id="assosciated" class="collapse")
-                                h1 Assosciated Logins
-                                h5 (users who can access/change your organizational data)
-                                .table-responsive
-                                    table.table.table-striped.table-sm
-                                        thead
-                                        tr
-                                        th UserName
-                                        tbody
-                                div(class='newUser')
-                                    <button data-toggle="collapse" class="btn btn-success" text-align='left' data-target="#newUser">Add a login</button>
-                                        div(id="newUser" class="collapse")
+                                div(class='jumbotron')
+                                    h1 Assosciated Logins
+                                    h5 (users who can access/change your organizational data)
+                                    .table-responsive
+                                        table.table.table-striped.table-sm
+                                            thead
+                                            tr
+                                            th UserName
+                                            tbody
+                                    div(class='newUser')
+                                        <button data-toggle="collapse" class="btn btn-success" text-align='left' data-target="#newUser">Add a login</button>
+                                            div(id="newUser" class="collapse")
                             br
-            
-            //- Post a new job
-            div(class='jumbotron') 
-                div(class="row")
-                    div(class='col-md-12')
-                        <button id='primary' data-toggle="collapse" class="btn btn-success" data-target="#myPostings">Post New Job</button>
-                        div(id="myPostings" class="collapse")
-                            iframe(name='formDestination' style='display:none')
-                            form(action='/api/new-job', method='post' target='formDestination')
-                                br
-                                h3 Please fill out all fields
-                                input.ghost-input(name='title', type='text', required='y' placeholder='job Title')
-                                br
-                                input.ghost-input(name='city', type='text', required='y' placeholder='City')
-                                br
-                                input.ghost-input(id='s' name='state', type='text', required='y' placeholder='State (abbreviation)' onkeyup='inputCheck();')
-                                p(id='stateCheck' style='display:none')
-                                br
-                                input.ghost-input(id='sd' name='startDate', type='text', required='y' placeholder='Start Date mm/dd/yyyy' onkeyup='inputCheck();')
-                                p(id='startCheck' style='display:none')
-                                br
-                                input.ghost-input(id='ed' name='endDate', type='text', required='n' placeholder='End Date mm/dd/yyyy (If Applicable)' onkeyup='inputCheck();')
-                                p(id='endCheck' style='display:none')
-                                br
-                                input.ghost-input(name='description', type='text', required='y' placeholder='Description')
-                                br
-                                input(type="hidden" name="id" value=user.id)
-                                br
-                                br
-                                input.ghost-button(id='secondary' type='submit' class='btn btn-danger' placeholder='Submit')
-                        br
-
-            //- List posted jobs
-            div(class='jumbotron') 
-                div(class="row")
-                    div(class='col-md-12')
-                        <button data-toggle="collapse" class="btn btn-success" data-target="#myJobs">View Listed Jobs</button>
-                        div(id="myJobs" class="collapse")
-                            h1 Posted Jobs
-                            .table-responsive
-                                table.table.table-striped.table-sm
-                                    thead
-                                    tr
-                                    th Job Title
-                                    th Filled (y or n)
-                                    tbody
-                                    each job in jobs
-                                        tr
-                                        td #{job.title}
-                                        td #{job.filled}
-
                             
                         br
                         br
