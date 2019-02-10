@@ -120,9 +120,20 @@ block content
                                             tr
                                             th UserName
                                             tbody
-                                    div(class='newUser')
-                                        <button data-toggle="collapse" class="btn btn-success" text-align='left' data-target="#newUser">Add a login</button>
-                                            div(id="newUser" class="collapse")
+                                            each login in logins
+                                                tr
+                                                td #{login.username}
+                                    div(class='row')
+                                        div(class='col-md-6')
+                                            div(class='newUser')
+                                                button(data-toggle="collapse" class="btn btn-success" style="width: 100%" text-align='left' data-target="#newUser") Add a login
+                                                    div(id="newUser" class="collapse")
+                                                        h3 hi there
+                                        div(class='col-md-6')
+                                            div(class='newUser')
+                                                button(data-toggle="collapse" class="btn btn-danger" style="width: 100%" text-align='left' data-target="#removeUser") Remove a login
+                                                    div(id="removeUser" class="collapse")
+                                                        h3 hi there
                             br
                             
                         br

@@ -45,7 +45,11 @@ router.post('/check', function(req,res,next){
         showPass = showPass + hidePass;
         console.log(showPass);
         models.Job.findAll({where:{companyId: user.id}}).then(function(jobs){
-          res.render('companyUser',{user,showPass,jobs});
+          models.otherLogins.findAll({where:{companyId: user.id}}).then(function(logins){
+            res.render('companyUser',{user,showPass,jobs,logins});
+  
+          });
+          // res.render('companyUser',{user,showPass,jobs});
 
         });
 
