@@ -6,10 +6,11 @@ block content
       h1(style='font-size:18vw;') Bulldogs Health
         div()
           img(style='height:20vh;' src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png"  alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
-      button(ahref='#' style='padding:20px; margin-top:10vh;' class='btn btn-success btn-lg') Get Started
+      input(type="button", class='btn btn-success btn-lg' value="See jobs" onClick="document.getElementById('jobs').scrollIntoView(true);" style='padding:20px; margin-top:8vh;')
+      //- button(onClick="document.getElementById('middle').scrollIntoView();" style='padding:20px; margin-top:10vh;' class='btn btn-success btn-lg') Get Started
   //- Some job openings
-  div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;')
-    div(data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-anchor-placement="bottom-bottom" data-aos-duration="400")
+  div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;' id='jobs')
+    div(data-aos="" data-aos-easing="ease-in-sine" data-aos-anchor-placement="bottom-bottom" data-aos-duration="400")
       h2(style="font-size:7vw; text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
       .table-responsive(style='font-size:3vw;')
         table.table.table-striped.table-sm
