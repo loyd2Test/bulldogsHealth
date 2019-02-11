@@ -1,72 +1,6 @@
 extends loginLayout
 block content
-  main
-   style.
-    input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    }
-    div[class=card]{
-      //- background-color:green;
-      //- height:5%;
-    }
-    input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    }
-    input[type=submit]:hover {
-    background-color: #45a049;
-    }
-    div {
-    border-radius: 5px;
-    padding: 20px;
-    }
-    
-  
-  div(class='jumbotron')
-    div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
-      div(class="about")
-        h1(style="text-align:center;") About Us
-        h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
-  
-  div(id="portfolio" class="container-fluid text-center bg-grey")
-    div(class='jumbotron')
-      h1(style="text-align:center;") Who We Are
-
-      div(class='row')
-        div(class='col-md-4')
-          div(class='card')
-            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image" class='portfolio')
-            div(class='card-body')
-              h3(class='card-title') Loyd Stewart II
-              p(class='card-text') Lead Programmer
-        div(class='col-md-4')
-          div(class='card')
-            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
-            div(class='card-body')
-              h3(class='card-title') Loyd Stewart II
-              p(class='card-text') Lead Programmer
-        div(class='col-md-4')
-          div(class='card')
-            img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
-            div(class='card-body')
-              h3(class='card-title') Loyd Stewart II
-              p(class='card-text') Lead Programmer
-    
-
-
-  div(class='jumbotron')
+  div(class="container-fluid bg-3 text-center")
     h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
     .table-responsive
       table.table.table-striped.table-sm
@@ -87,15 +21,82 @@ block content
           td 4 days a week, 12pm to 9pm
           td nursing degree
 
-    div(class ='checkIfUser',style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;background-color: #f2f2f2;")
-      h1 What would you like to do?
+    div(data-aos="flip-up" data-aos-duration="1000" type ='help')
+      h3(style='line-height: 1.2; font-size: 3.5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
           h4 Find a job
           input(type="radio", name="type" value='I' checked) 
         div
-          h4 Post a job
+          h4 Find an employee
           input(type="radio", name="type" value='B')
         input.ghost-button(type='submit', value='Sign Up')
     br
 
+  div(data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="container-fluid bg-1 text-center" style="margin-bottom: 200px;margin-top: 200px;")
+    h2(class="margin") About Us
+    h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
+  //- div(class='jumbotron' style="margin-bottom: 100px;")
+  //-   div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
+      //- div(class="about")
+      //-   h1(style="text-align:center;") About Us
+      //-   h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
+  div(data-aos="fade"  data-aos-duration="3000" class="container-fluid bg-3 text-center")  
+    h1(data-aos="flip-left" data-aos-duration="1000" class="margin") Who We Are 
+    div(class="row") 
+      div(class="col-sm-6")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
+      div(class="col-sm-6")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
+    div(class="row")
+      div(class="col-sm-6")
+        h2 Chandler Hill
+        p Project Manager
+      div(class="col-sm-6")
+        h2 Loyd Stewart II
+        p Lead Programmer - Assistant Project Manager
+      div(class="col-sm-4")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
+      div(class="col-sm-4")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
+      div(class="col-sm-4")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")    
+    br
+    div(class="row")
+      div(class="col-sm-4")
+        h2 Benjamin Harvey
+        p Blah blah blah
+      div(class="col-sm-4")
+        h2 Nicholas Charter
+        p Blah blah blah
+      div(class="col-sm-4")
+        h2 Arjay Parades
+        p Blah blah blah
+    
+  //- div(id="portfolio" class="container-fluid text-center bg-grey")
+  //-   div(class='jumbotron')
+  //-     h1(style="text-align:center;") Who We Are
+
+  //-     div(class='row')
+  //-       div(class='col-md-4')
+  //-         div(class='card')
+  //-           img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image" class='portfolio')
+  //-           div(class='card-body')
+  //-             h3(class='card-title') Loyd Stewart II
+  //-             p(class='card-text') Lead Programmer
+  //-       div(class='col-md-4')
+  //-         div(class='card')
+  //-           img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
+  //-           div(class='card-body')
+  //-             h3(class='card-title') Loyd Stewart II
+  //-             p(class='card-text') Lead Programmer
+  //-       div(class='col-md-4')
+  //-         div(class='card')
+  //-           img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" alt="Card image")
+  //-           div(class='card-body')
+  //-             h3(class='card-title') Loyd Stewart II
+  //-             p(class='card-text') Lead Programmer
+    
+
+
+  
