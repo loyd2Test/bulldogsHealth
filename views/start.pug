@@ -1,18 +1,19 @@
 extends loginLayout
 block content
   //- Logo & title
-  div(class="container-bd bg-2 text-center" style='height:100vh')
+  //- div(class='flex-container')
+  div(class="container-bd bg-2 text-center" style='margin-bottom:100px;')
     div(class='logo' style='margin: 250px;')
-      h1(style='font-size:18vw;') Bulldogs Health
-        div()
-          img(style='height:20vh;' src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png"  alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
-      input(type="button", class='btn btn-success btn-lg' value="See jobs" onClick="document.getElementById('jobs').scrollIntoView(true);" style='padding:20px; margin-top:8vh;')
+      h1(style='font-size:10vw;') Bulldogs Health
+        div(class='')
+          img(style='height:20vh;display: block;margin-left: auto;margin-right: auto;' src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png")
+      //- input(type="button", class='btn btn-success btn-lg' value="See jobs" onClick="document.getElementById('jobs').scrollIntoView();" style='padding:20px; margin-top:8vh;')
       //- button(onClick="document.getElementById('middle').scrollIntoView();" style='padding:20px; margin-top:10vh;' class='btn btn-success btn-lg') Get Started
   //- Some job openings
   div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;' id='jobs')
-    div(data-aos="" data-aos-easing="ease-in-sine" data-aos-anchor-placement="bottom-bottom" data-aos-duration="400")
-      h2(style="font-size:7vw; text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
-      .table-responsive(style='font-size:3vw;')
+    div(data-aos="fade" data-aos-easing="ease-in-sine" data-aos-anchor-placement="top-center" data-aos-duration="400")
+      h2(style="font-size:4vw; text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
+      .table-responsive(style='font-size:2vw;')
         table.table.table-striped.table-sm
           thead
             tr
@@ -31,7 +32,7 @@ block content
               td #{job.description}
 
     //- How can we help you?
-    div(class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="500" data-aos-offset="170" type ='help')
+    div(class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="top-bottom" data-aos-offset="200" data-aos-duration="300" type ='help')
       h3(style='line-height: 1.2; font-size: 5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
@@ -40,13 +41,13 @@ block content
         div
           h4(style='font-size:3vw;') Find an employee
           input(style='transform: scale(3);' type="radio", name="type" value='B')
-        input.ghost-button(style='font-size:7vw;' type='submit', value='Sign Up')
-    br
+        input.ghost-button(style='font-size:5vw;' type='submit', value='Sign Up')
+    
 
   //- About us
-  div(data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="container-fluid bg-1 text-center" style="margin-bottom: 600px;margin-top: 200px; height:600px;")
-    h2(style='font-size:75px;' class="margin") About Us
-    h4(style="padding:75px; font-size:50px;") We are a small organization committed to matching prospective employers with the perfect employee!
+  div(data-aos="fade-up"  data-aos-anchor-placement="top-bottom" data-aos-offset="400" data-aos-duration="600" class="container-fluid bg-1 text-center" style="margin-bottom: 300px;margin-top: 0px;height:35vw;width:75vw;")
+    h2(style='font-size:5vw; text-decoration: underline;margin-bottom:20px;' class="") About Us
+    h4(style="padding:5px; font-size:4vw;") We are a small organization committed to matching prospective employers with the perfect employee!
   //- div(class='jumbotron' style="margin-bottom: 100px;")
   //-   div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
       //- div(class="about")
@@ -54,31 +55,31 @@ block content
       //-   h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
   
   //- The team
-  div(data-aos="fade" data-aos-offset="800" data-aos-anchor-placement="top-bottom" data-aos-duration="3000" class="container-fluid bg-3 text-center" style='')  
-    h1(style='font-size:20vw;' data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom"  data-aos-offset="500" data-aos-duration="1000" class="margin") The Team
+  div(data-aos="fade" data-aos-offset="125" data-aos-anchor-placement="top-bottom" data-aos-duration="3000" class="container-fluid bg-3 text-center" style='')  
+    h1(style='font-size:8vw;' data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom"  data-aos-offset="100" data-aos-duration="1000" class="margin") The Team
     
     div(class="row") 
-      div(class="col-sm-6" data-aos="fade-right" data-aos-offset="700")
+      div(class="col-sm-6" data-aos="fade-right" data-aos-offset="350")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image" type='us')
         div(class='caption')
-          h2(style='font-size:10vw;') Chandler Hill
-          p(style='font-size:5vw;') Project Manager
-      div(class="col-sm-6" data-aos="fade-left" data-aos-offset="700")
+          h2(style='font-size:4vw;') Chandler Hill
+          p(style='font-size:2vw;') Project Manager
+      div(class="col-sm-6" data-aos="fade-left" data-aos-offset="350")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
-        h2(style='font-size:10vw;') Loyd Stewart II
-        p(style='font-size:5vw;') Lead Programmer - Assistant Project Manager
-      div(class="col-sm-4" data-aos="fade-down-right" data-aos-offset="700")
+        h2(style='font-size:4vw;') Loyd Stewart II
+        p(style='font-size:2vw;') Lead Programmer - Assistant Project Manager
+      div(class="col-sm-4" data-aos="fade-down-right" data-aos-offset="350")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
-        h2(style='font-size:6vw;') Benjamin Harvey
-        p(style='font-size:4vw;') Blah blah blah
-      div(class="col-sm-4" data-aos="fade" data-aos-offset="700")
+        h2(style='font-size:3vw;') Benjamin Harvey
+        p(style='font-size:1vw;') Blah blah blah
+      div(class="col-sm-4" data-aos="fade" data-aos-offset="350")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
-        h2(style='font-size:6vw;') Nicholas Charter
-        p(style='font-size:4vw;') Blah blah blah
-      div(class="col-sm-4" data-aos="fade-down-left" data-aos-offset="700")
+        h2(style='font-size:3vw;') Nicholas Charter
+        p(style='font-size:1vw;') Blah blah blah
+      div(class="col-sm-4" data-aos="fade-down-left" data-aos-offset="350")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")    
-        h2(style='font-size:6vw;') Arjay Parades
-        p(style='font-size:4vw;') Blah blah blah
+        h2(style='font-size:3vw;') Arjay Parades
+        p(style='font-size:1vw;') Blah blah blah
     
     br
     

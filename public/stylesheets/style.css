@@ -1,7 +1,10 @@
 body {
-  padding: 50px;
+  padding: 0px;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
   font: 20px Montserrat, sans-serif;
+  width:100%;
+  /* overflow-x:hidden; */
+  overflow-x: hidden;
 }
 
 a {
@@ -74,6 +77,7 @@ a {
 
 [role="main"] {
   padding-top: 48px; /* Space for fixed navbar */
+  padding-bottom: 48px;
 }
 
 /*
