@@ -1,27 +1,29 @@
 extends loginLayout
 block content
   div(class="container-fluid bg-3 text-center")
+    h1(style='font-size:100px;') Bulldogs Health
+    img(src="https://openclipart.org/image/175px/svg_to_png/298185/dog-img-publicdomainvectors.org.png" alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
+  div(class="container-fluid bg-3 text-center")
     h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
     .table-responsive
       table.table.table-striped.table-sm
         thead
           tr
-          th Job ID
           th Title
           th Location
           th Availability
-          th Details
-          th Certifications
+          th Start Date
+          th Description
         tbody
-          tr
-          td 01
-          td Registered Nurse/RN
-          td Orlando, FL
-          td Open
-          td 4 days a week, 12pm to 9pm
-          td nursing degree
+          each job in jobs
+            tr
+            td #{job.title}
+            td #{job.city},#{job.state}
+            td #{job.filled}
+            td #{job.startDate}
+            td #{job.description}
 
-    div(data-aos="flip-up" data-aos-duration="1000" type ='help')
+    div(data-aos="fade-left" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="500" type ='help')
       h3(style='line-height: 1.2; font-size: 3.5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
