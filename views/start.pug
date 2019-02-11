@@ -1,29 +1,31 @@
 extends loginLayout
 block content
-  div(class="container-fluid bg-3 text-center")
-    h1(style='font-size:100px;') Bulldogs Health
-    img(src="https://openclipart.org/image/175px/svg_to_png/298185/dog-img-publicdomainvectors.org.png" alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
-  div(class="container-fluid bg-3 text-center")
-    h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
-    .table-responsive
-      table.table.table-striped.table-sm
-        thead
-          tr
-          th Title
-          th Location
-          th Availability
-          th Start Date
-          th Description
-        tbody
-          each job in jobs
+  div(class="container-bd bg-2 text-center")
+    div(class='logo' style='margin: 250px;')
+      h1(style='font-size:250px;') Bulldogs Health
+      img(src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png" alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
+  div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;')
+    div(data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-anchor-placement="center-center" data-aos-duration="600")
+      h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
+      .table-responsive
+        table.table.table-striped.table-sm
+          thead
             tr
-            td #{job.title}
-            td #{job.city},#{job.state}
-            td #{job.filled}
-            td #{job.startDate}
-            td #{job.description}
+            th Title
+            th Location
+            th Availability
+            th Start Date
+            th Description
+          tbody
+            each job in jobs
+              tr
+              td #{job.title}
+              td #{job.city},#{job.state}
+              td #{job.filled}
+              td #{job.startDate}
+              td #{job.description}
 
-    div(data-aos="fade-left" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="500" type ='help')
+    div(class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="500" data-aos-offset="170" type ='help')
       h3(style='line-height: 1.2; font-size: 3.5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
@@ -35,7 +37,7 @@ block content
         input.ghost-button(type='submit', value='Sign Up')
     br
 
-  div(data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="container-fluid bg-1 text-center" style="margin-bottom: 200px;margin-top: 200px;")
+  div(data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="container-fluid bg-1 text-center" style="margin-bottom: 600px;margin-top: 200px;")
     h2(class="margin") About Us
     h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
   //- div(class='jumbotron' style="margin-bottom: 100px;")
@@ -48,32 +50,27 @@ block content
     div(class="row") 
       div(class="col-sm-6")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-      div(class="col-sm-6")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-    div(class="row")
-      div(class="col-sm-6")
         h2 Chandler Hill
         p Project Manager
       div(class="col-sm-6")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
         h2 Loyd Stewart II
         p Lead Programmer - Assistant Project Manager
       div(class="col-sm-4")
         img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-      div(class="col-sm-4")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-      div(class="col-sm-4")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")    
-    br
-    div(class="row")
-      div(class="col-sm-4")
         h2 Benjamin Harvey
         p Blah blah blah
       div(class="col-sm-4")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
         h2 Nicholas Charter
         p Blah blah blah
       div(class="col-sm-4")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")    
         h2 Arjay Parades
         p Blah blah blah
+    
+    br
+    
     
   //- div(id="portfolio" class="container-fluid text-center bg-grey")
   //-   div(class='jumbotron')
