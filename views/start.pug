@@ -6,7 +6,7 @@ block content
       h1(style='font-size:18vw;') Bulldogs Health
         div()
           img(style='height:20vh;' src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png"  alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
-  
+      button(ahref='#' style='padding:20px; margin-top:10vh;' class='btn btn-success btn-lg') Get Started
   //- Some job openings
   div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;')
     div(data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-anchor-placement="bottom-bottom" data-aos-duration="400")
@@ -31,13 +31,13 @@ block content
 
     //- How can we help you?
     div(class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="500" data-aos-offset="170" type ='help')
-      h3(style='line-height: 1.2; font-size: 3.5vw;') How can we help you?
+      h3(style='line-height: 1.2; font-size: 5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
-          h4(style='font-size:5vw;') Find a job
+          h4(style='font-size:3vw;') Find a job
           input(style='transform: scale(3);' type="radio", name="type" value='I' checked) 
         div
-          h4(style='font-size:5vw;') Find an employee
+          h4(style='font-size:3vw;') Find an employee
           input(style='transform: scale(3);' type="radio", name="type" value='B')
         input.ghost-button(style='font-size:7vw;' type='submit', value='Sign Up')
     br
@@ -53,29 +53,31 @@ block content
       //-   h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
   
   //- The team
-  div(data-aos="fade" data-aos-offset="500" data-aos-anchor-placement="top-bottom" data-aos-duration="3000" class="container-fluid bg-3 text-center")  
-    h1(style='font-size:250px;' data-aos="flip-left" data-aos-anchor-placement="bottom-bottom"  data-aos-offset="500" data-aos-duration="1000" class="margin") Who We Are 
+  div(data-aos="fade" data-aos-offset="800" data-aos-anchor-placement="top-bottom" data-aos-duration="3000" class="container-fluid bg-3 text-center" style='')  
+    h1(style='font-size:20vw;' data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom"  data-aos-offset="500" data-aos-duration="1000" class="margin") The Team
+    
     div(class="row") 
-      div(class="col-sm-6")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-        h2(style='font-size:100px;') Chandler Hill
-        p(style='font-size:50px;') Project Manager
-      div(class="col-sm-6")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-        h2(style='font-size:100px;') Loyd Stewart II
-        p(style='font-size:50px;') Lead Programmer - Assistant Project Manager
-      div(class="col-sm-4")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-        h2(style='font-size:60px;') Benjamin Harvey
-        p(style='font-size:40px;') Blah blah blah
-      div(class="col-sm-4")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")
-        h2(style='font-size:60px;') Nicholas Charter
-        p(style='font-size:40px;') Blah blah blah
-      div(class="col-sm-4")
-        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-responsive margin" style="width:100%" alt="Image")    
-        h2(style='font-size:60px;') Arjay Parades
-        p(style='font-size:40px;') Blah blah blah
+      div(class="col-sm-6" data-aos="fade-right" data-aos-offset="700")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image" type='us')
+        div(class='caption')
+          h2(style='font-size:10vw;') Chandler Hill
+          p(style='font-size:5vw;') Project Manager
+      div(class="col-sm-6" data-aos="fade-left" data-aos-offset="700")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
+        h2(style='font-size:10vw;') Loyd Stewart II
+        p(style='font-size:5vw;') Lead Programmer - Assistant Project Manager
+      div(class="col-sm-4" data-aos="fade-down-right" data-aos-offset="700")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
+        h2(style='font-size:6vw;') Benjamin Harvey
+        p(style='font-size:4vw;') Blah blah blah
+      div(class="col-sm-4" data-aos="fade" data-aos-offset="700")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")
+        h2(style='font-size:6vw;') Nicholas Charter
+        p(style='font-size:4vw;') Blah blah blah
+      div(class="col-sm-4" data-aos="fade-down-left" data-aos-offset="700")
+        img(src="https://pbs.twimg.com/profile_images/1093928592457781248/-X_tP7jd_400x400.jpg" class="img-thumbnail margin" style="width:100%" alt="Image")    
+        h2(style='font-size:6vw;') Arjay Parades
+        p(style='font-size:4vw;') Blah blah blah
     
     br
     
