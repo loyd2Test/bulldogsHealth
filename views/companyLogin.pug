@@ -52,23 +52,23 @@ block content
 
 
 
+  div(style="background-color:white;padding:50px;")
+    div(class='loginForm' style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
+      h1 Company Login
+      form(action='/companies/check', method='post')
+            input.ghost-input(name='username', type='text', placeholder='Username', required='y')
+            br
+            input.ghost-input(name='pass', type='password', placeholder='Password', required='y')
+            br
+            br
+            input.ghost-button(type='submit', value='Log In')
+    br
 
-  div(class='loginForm' style="text-align:center;width: 100%;padding: 12px 20px;margin: 8px 0;display: inline-block;border: 10px solid #ccc;border-radius: 10px;border-color:#45a049;box-sizing: border-box;")
-    h1 Company Login
-    form(action='/companies/check', method='post')
-          input.ghost-input(name='username', type='text', placeholder='Username', required='y')
-          br
-          input.ghost-input(name='pass', type='password', placeholder='Password', required='y')
-          br
-          br
-          input.ghost-button(type='submit', value='Log In')
-  br
-
-  
-  h4 Not a business?    
-  button(type='button' class='btn btn-default')
-    a.nav-link(style="color:#45a049",href="/login") Sign In With My Personal Account
-  br
-  h4 Not a member?    
-  button(type='button' class='btn btn-default')
-    a.nav-link(style="color:#45a049",href="/signUp") Sign Up
+    
+    h4 Not a business?    
+    button(type='button' class='btn btn-default')
+      a.nav-link(style="color:#45a049",href="/login") Sign In With My Personal Account
+    br
+    //- h4 Not a member?    
+    //- button(type='button' class='btn btn-default')
+    //-   a.nav-link(style="color:#45a049",href="/signUp") Sign Up

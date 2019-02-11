@@ -80,32 +80,32 @@ block content
 
     script(src="/javascripts/checkPassword.js").
 
+  div(style='padding:50px;background-color:white;')
+    div(class="box")
+      //- h1 Join Now
+      form(action='/signUp/newCompany', method='POST')
+            h3 Sign-up for businesses
+            input.ghost-input(id = 'n', name='name', type='text', placeholder='Name', required='y')
+            br
+            input.ghost-input(id = 'u',name='username', type='text', placeholder='Username', required='y')
+            br
+            input.ghost-input(id = 'e',name='email', type='text', placeholder='Email', required='y')
+            br
+            input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();' )
+            br
+            input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();')
+            br
+            br
+            p(id="divCheckPasswordMatch") 
+            p(id="divCheckPasswordLen") 
+            input.ghost-button(type='submit', value='Sign Up')
+            //- p(id="divCheckPasswordMatch")
+            //- div(class="registrationFormAlert" id="divCheckPasswordMatch")
+    //- div(class='box')
+    //-   h1 Not looking for a job?
+    //-   Button Register Your Company
 
-  div(class="box")
-    //- h1 Join Now
-    form(action='/signUp/newCompany', method='POST')
-          h3 Sign-up for businesses
-          input.ghost-input(id = 'n', name='name', type='text', placeholder='Name', required='y')
-          br
-          input.ghost-input(id = 'u',name='username', type='text', placeholder='Username', required='y')
-          br
-          input.ghost-input(id = 'e',name='email', type='text', placeholder='Email', required='y')
-          br
-          input.ghost-input(id = 'p1', name='password', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();' )
-          br
-          input.ghost-input(id = 'p2',name='passwordConfirm', type='password', placeholder='Password', required='y', onkeyup='checkPasswordMatch();')
-          br
-          br
-          p(id="divCheckPasswordMatch") 
-          p(id="divCheckPasswordLen") 
-          input.ghost-button(type='submit', value='Sign Up')
-          //- p(id="divCheckPasswordMatch")
-          //- div(class="registrationFormAlert" id="divCheckPasswordMatch")
-  //- div(class='box')
-  //-   h1 Not looking for a job?
-  //-   Button Register Your Company
+    
 
-  
-
-  br
+    br
   
