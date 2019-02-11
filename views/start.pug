@@ -5,9 +5,9 @@ block content
       h1(style='font-size:250px;') Bulldogs Health
       img(src="https://openclipart.org/image/800px/svg_to_png/298185/dog-img-publicdomainvectors.org.png" alt="Dog (#2)" title="Dog (#2) by  oksmith ( https://openclipart.org/user-detail/oksmith )")
   div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;')
-    div(data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-anchor-placement="center-center" data-aos-duration="600")
-      h2(style="text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
-      .table-responsive
+    div(data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-anchor-placement="bottom-bottom" data-aos-duration="400")
+      h2(style="font-size:70px; text-align:center;padding:15px;") Job Openings (Sign up/in to apply)
+      .table-responsive(style='font-size:50px;')
         table.table.table-striped.table-sm
           thead
             tr
@@ -29,17 +29,17 @@ block content
       h3(style='line-height: 1.2; font-size: 3.5vw;') How can we help you?
       form(action='/signUp/check', method='POST')
         div
-          h4 Find a job
-          input(type="radio", name="type" value='I' checked) 
+          h4(style='font-size:75px;') Find a job
+          input(style='transform: scale(3);' type="radio", name="type" value='I' checked) 
         div
-          h4 Find an employee
-          input(type="radio", name="type" value='B')
-        input.ghost-button(type='submit', value='Sign Up')
+          h4(style='font-size:75px;') Find an employee
+          input(style='transform: scale(3);' type="radio", name="type" value='B')
+        input.ghost-button(style='font-size:75px;' type='submit', value='Sign Up')
     br
 
   div(data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000" class="container-fluid bg-1 text-center" style="margin-bottom: 600px;margin-top: 200px; height:600px;")
-    h2(class="margin") About Us
-    h4(style="padding:125px;") We are a small organization committed to matching prospective employers with the perfect employee!
+    h2(style='font-size:75px;' class="margin") About Us
+    h4(style="padding:125px; font-size:50px;") We are a small organization committed to matching prospective employers with the perfect employee!
   //- div(class='jumbotron' style="margin-bottom: 100px;")
   //-   div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
       //- div(class="about")
