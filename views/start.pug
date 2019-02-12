@@ -10,6 +10,20 @@ block content
     //- h1(style='font-size:10vw;') Bulldogs Health
       //- input(type="button", class='btn btn-success btn-lg' value="See jobs" onClick="document.getElementById('jobs').scrollIntoView();" style='padding:20px; margin-top:8vh;')
       //- button(onClick="document.getElementById('middle').scrollIntoView();" style='padding:20px; margin-top:10vh;' class='btn btn-success btn-lg') Get Started
+  //- How can we help you?
+  div(class="container-fluid bg-3 text-center" style='margin-bottom: 175px;' id='signup')
+    div(id='help' class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="top-bottom" data-aos-offset="300" data-aos-duration="300" type ='help')
+      h3(style='line-height: 1.2; font-size: 3vw;') How can we help you?
+      form(action='/signUp/check', method='POST')
+        div
+          h4(style='font-size:3vw;') Find a job
+          input(style='transform: scale(1);' type="radio", name="type" value='I' checked) 
+        div
+          h4(style='font-size:3vw;') Find an employee
+          input(style='transform: scale(1);' type="radio", name="type" value='B')
+        input.ghost-button(style='font-size:3vw;' type='submit', value='Sign Up')
+      
+    
   //- Some job openings
   div(class="container-fluid bg-3 text-center" style='margin-bottom: 300px;' id='jobs')
     div(class='div-with-bg')
@@ -33,31 +47,32 @@ block content
                 td #{job.startDate}
                 td #{job.description}
 
-    //- How can we help you?
-    div(class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="top-bottom" data-aos-offset="300" data-aos-duration="300" type ='help')
-      h3(style='line-height: 1.2; font-size: 3vw;') How can we help you?
-      form(action='/signUp/check', method='POST')
-        div
-          h4(style='font-size:3vw;') Find a job
-          input(style='transform: scale(1);' type="radio", name="type" value='I' checked) 
-        div
-          h4(style='font-size:3vw;') Find an employee
-          input(style='transform: scale(1);' type="radio", name="type" value='B')
-        input.ghost-button(style='font-size:3vw;' type='submit', value='Sign Up')
+    //- //- How can we help you?
+    //- div(id='help' class="container-fluid bg-3 text-center"  data-aos="zoom-in" data-aos-easing="ease-in-quart" data-aos-anchor-placement="top-bottom" data-aos-offset="300" data-aos-duration="300" type ='help')
+    //-   h3(style='line-height: 1.2; font-size: 3vw;') How can we help you?
+    //-   form(action='/signUp/check', method='POST')
+    //-     div
+    //-       h4(style='font-size:3vw;') Find a job
+    //-       input(style='transform: scale(1);' type="radio", name="type" value='I' checked) 
+    //-     div
+    //-       h4(style='font-size:3vw;') Find an employee
+    //-       input(style='transform: scale(1);' type="radio", name="type" value='B')
+    //-     input.ghost-button(style='font-size:3vw;' type='submit', value='Sign Up')
     
 
   //- About us
-  div(data-aos="fade-up"  data-aos-anchor-placement="top-bottom" data-aos-offset="300" data-aos-duration="600" class="container-fluid bg-1 text-center" style="margin-bottom: 300px;margin-top: 0px;height:35vw;width:75vw;")
-    h2(style='font-size:5vw; text-decoration: underline;margin-bottom:20px;' class="") About Us
-    h4(style="padding:5px; font-size:4vw;") We are a small organization committed to matching prospective employers with the perfect employee!
-  //- div(class='jumbotron' style="margin-bottom: 100px;")
-  //-   div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
-      //- div(class="about")
-      //-   h1(style="text-align:center;") About Us
-      //-   h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
-  
+  div(id='about' style='padding-top:100px;')
+    div( data-aos="fade-up"  data-aos-anchor-placement="top-bottom" data-aos-offset="300" data-aos-duration="600" class="container-fluid bg-1 text-center" style="margin-bottom: 300px;margin-top: 0px;height:35vw;width:75vw;")
+      h2(style='font-size:5vw; text-decoration: underline;margin-bottom:20px;' class="") About Us
+      h4(style="padding:5px; font-size:4vw;") We are a small organization committed to matching prospective employers with the perfect employee!
+    //- div(class='jumbotron' style="margin-bottom: 100px;")
+    //-   div(class = "seperate" style="padding-top:100px;padding-bottom:100px;")
+        //- div(class="about")
+        //-   h1(style="text-align:center;") About Us
+        //-   h4(style="padding:30px;") We are a small organization committed to matching prospective employers with the perfect employee!
+      
   //- The team
-  div(class="bg-2" style='margin-bottom:0px;border-radius:0px;')
+  div(class="bg-2" style='margin-bottom:0px;border-radius:0px;' id='team')
     div(data-aos="fade" data-aos-offset="125" data-aos-anchor-placement="top-bottom" data-aos-duration="3000" class="container-fluid bg-2 text-center" style='width: 65vw;')  
       h1(style='font-size:8vw;' data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom"  data-aos-offset="100" data-aos-duration="1000" class="margin") The Team
       

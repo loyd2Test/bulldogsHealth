@@ -103,8 +103,15 @@ html
       .img-margin{
         margin-bottom: 40px;
 
-
       }
+      #div_ul {
+        background-color:#eeeeee;
+        display:inline;      
+      }
+      #my_ul li {
+        display: inline;
+      }
+    
       .navbar-nav  li a:hover {
         color: #1abc9c !important;
       }
@@ -122,12 +129,25 @@ html
     link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.p-0.shadow
-      a.navbar-brand.col-sm-4.col-md-3.mr-0(href='/') Bulldogs Health
-      ul.navbar-nav.px-3
-        li.nav-item.text-nowrap
-        a.nav-link(href="/login") Sign in
-
+    //- nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.navbar-expand-lg.p-0.shadow
+    //-   a.navbar-brand.col-sm-4.col-md-2.mr-0(href='/') Bulldogs Health
+    //-   a.nav-link.col-sm-4(href="/login") Sign in
+    //-   ul.navbar-nav.px-3(id='my_ul')
+    //-     li(class='nav-item text-nowrap')
+    //-       a.nav-link(href="/login") Sign in
+    //-     li(class='nav-item text-nowrap')
+    //-       a.nav-link(href="#help") View Jobs
+    
+    nav.navbar.navbar-dark.fixed-top.bg-dark.flex-md-nowrap.navbar-expand-lg.p-0.shadow
+      a.navbar-brand.col-sm-4.col-md-2.mr-0(href='/') Bulldogs Health
+      a.nav-link.col-sm-1
+      a.nav-link.col-sm-2(href="#jobs") View Jobs
+      a.nav-link.col-sm-2(href="#about") About Us
+      a.nav-link.col-sm-2(href="#team") The Team
+      a.nav-link.col-sm-2(href="#signup") Sign Up
+      a.nav-.navbar-brand.col-sm-2(href="/login") Sign in
+      
+    
 
     nav.navbar.navbar-dark.fixed-bottom.bg-dark.flex-md-nowrap.p-0.shadow
       a.navbar-brand.col-sm-12.col-md-12.mr-0(href='/') © 2019 Bulldogs Health
@@ -138,5 +158,20 @@ html
   script(src='/javascripts/bootstrap.min.js')
   script.
     AOS.init();
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script.
+    $(document).ready(function(){
+      $("a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 1000, function(){ 
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
  
   
