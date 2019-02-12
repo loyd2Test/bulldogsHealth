@@ -15,6 +15,12 @@ var userRouter = require('./routes/user');
 var scriptRouter = require('./routes/myJS');
 var app = express();
 
+// For public folder
+// var publicDir = require('path').join(__dirname,'/public');
+// app.use(express.static(publicDir));
+// app.use(express.static(__dirname + 'public'));
+// app.use('/images', express.static(__dirname + '/public/images'));
+
 // var myJavascriptsRouter = require('./myJavascripts/test');
 // app.use('/myJS', myJavascriptsRouter);
 
