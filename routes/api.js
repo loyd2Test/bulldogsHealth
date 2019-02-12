@@ -25,8 +25,8 @@ router.post('/new-job', function(req, res, next) {
       plain: true
       
     }))
-    if(created == true){
-      res.render('companyUser',{user,created});
+    // if(created == true){
+      // res.render('companyUser',{user,created});
    
       // models.Job.findOne({where:{email: user.email}
       // }).then(function(user) {
@@ -35,12 +35,31 @@ router.post('/new-job', function(req, res, next) {
       //   });
       // }); 
 
-    }
+    // }
     console.log(created)
 
   })
 });
 
+router.post('/add-admin', function(req,res,next){
+  if(req.body.password == req.body.passwordConfirm){
+    // res.json(req.body);
+  models.otherLogins.findOrCreate({where: {username: req.body.username}, defaults:{companyId: req.body.id,password: req.body.password}})
+  .spread((user, created) => {
+    console.log(user.get({
+      plain: true
+      
+    }))
+    if(created == true){
+      res.render('companyUser');
+    }
+    console.log(created)
+
+  })
+
+}
+    
+})
 
 function checkNewjob(){
   console.log("Hi there")

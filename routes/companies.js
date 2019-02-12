@@ -22,6 +22,18 @@ router.get('/companyLogin', function(req, res, next) {
 
 module.exports = router;
 
+router.post('/remove-admin', function(req,res,next){
+  var which = req.body.type;
+  var myid = req.body.my_id;
+  console.log(which);
+  console.log(myid);
+  // models.Job.findAll({where:{companyId: value}}).then(function(jobs){}),
+  // models.Company.findOne({ where: {username: req.body.username} }).then(function(user) {
+    
+    
+  // });
+})
+
 
 router.post('/check', function(req,res,next){
   // models.Job.findAll({where:{companyId: value}}).then(function(jobs){}),
