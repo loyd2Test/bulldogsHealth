@@ -85,21 +85,46 @@ router.post('/new', function(req,res,next){
 router.post('/newCompany', function(req,res,next){
   if(req.body.password == req.body.passwordConfirm){
       // res.json(req.body);
-    models.Company.findOrCreate({where: {name: req.body.name}, defaults:{email:req.body.email, username: req.body.username, password: req.body.password}})
+    models.Company.findOrCreate({where: {name: req.body.name}, defaults:{website:req.body.website,email:req.body.email, username: req.body.username, password: req.body.password}})
     .spread((user, created) => {
       console.log(user.get({
         plain: true
         
       }))
-      if(created == true){
-        models.Company.findOne({where:{email: user.email}
-        }).then(function(user) {
-          res.render('companyUser', {
-            user
+      // if(created == true){
+        models.Company.findOne({ where: {email: user.email} }).then(function(user) {
+          hidePass='';
+          showPass='';
+  
+          len = user.password.length;
+          for(x = len-4; x<len; x++){
+              hidePass+=user.password[x];
+          }
+          numStar = user.password.length - 4;
+          for(x=0;x<numStar;x++){
+              showPass+=('*');
+          }
+          showPass = showPass + hidePass;
+          console.log(showPass);
+          models.Job.findAll({where:{companyId: user.id}}).then(function(jobs){
+            models.otherLogins.findAll({where:{companyId: user.id}}).then(function(logins){
+              res.render('companyUser',{user,showPass,jobs,logins});
+    
+            });
           });
-        }); 
+      
+      
+           
+          
+        });
+        // models.Company.findOne({where:{email: user.email}
+        // }).then(function(user) {
+        //   res.render('companyUser', {
+        //     user
+        //   });
+        // }); 
 
-      }
+      // }
       console.log(created)
 
     })
