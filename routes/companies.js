@@ -39,7 +39,34 @@ router.post('/check', function(req,res,next){
   // models.Job.findAll({where:{companyId: value}}).then(function(jobs){}),
   models.Company.findOne({ where: {username: req.body.username} }).then(function(user) {
     if (user == null) {
-      res.send("User not found");
+      models.otherLogins.findOne({ where: {username: req.body.username} }).then(function(user){
+        if (user == null){
+          res.send("User not found");
+        }
+        else{
+          if(user.password == req.body.pass){
+            console.log('user found');
+            hidePass='';
+            showPass='';
+            len = user.password.length;
+            for(x = len-4; x<len; x++){
+                hidePass+=user.password[x];
+            }
+            numStar = user.password.length - 4;
+            for(x=0;x<numStar;x++){
+                showPass+=('*');
+            }
+            showPass = showPass + hidePass;
+            console.log(showPass);
+            models.Job.findAll({where:{companyId: user.companyId}}).then(function(jobs){
+              models.otherLogins.findAll({where:{companyId: user.companyId}}).then(function(logins){
+                res.render('companyUser',{user,showPass,jobs,logins});
+              });    
+            });
+          }
+        }
+      });
+      
     } else {
       if(user.password == req.body.pass){
         console.log('user found');
